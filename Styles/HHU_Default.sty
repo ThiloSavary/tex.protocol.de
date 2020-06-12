@@ -1,0 +1,194 @@
+% ----------------------------------------------------
+%
+% Created by Jan Thilo Savary 25.04.2020
+% Creative Commons CC By-NC-SA 4.0 Creative Commons
+%
+% Version 1.01
+%
+% ----------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{HHU_Default}[2020/05/24]
+
+%   Marcros und Befehle zur Definition
+\let\maketableofcontents = \tableofcontents
+
+\def\@author{}
+\def\@date{}
+\def\@subtitle{}
+\def\@institute{}
+\def\@title{}
+\def\@authormail{}
+\def\@group{}
+\def\@matriculation{}
+
+%   Kommandos für Definitionen
+\renewcommand{\author}[1]{\def\@author{#1} 
+    \hypersetup{
+        pdfauthor = #1
+    }
+}
+\renewcommand{\date}[1]{\def\@date{#1}}
+\renewcommand{\subtitle}[1]{\def\@subtitle{#1}}
+\newcommand{\institute}[1]{\def\@institute{#1}}
+\renewcommand{\title}[1]{\def\@title{#1}}
+\newcommand{\authormail}[1]{\def\@authormail{#1}}
+\newcommand{\group}[1]{\def\@group{#1}}
+\newcommand{\matriculation}[1]{\def\@matriculation{#1}}
+
+\geometry{
+    a4paper,                                                    % DIN A4
+    left=2.5cm,                                                 % Abstand Dokumentrand und Textbereich links
+    right=2.5cm,                                                % Abstand Dokumentrand und Textbereich rechts
+    top=2.5cm,                                                  % Abstand Dokumentrand und Textbereich oben
+    bottom=2cm,                                                 % Abstand Dokumentrand und Textbereich unten
+    includeheadfoot,                                            % Textbereich beinhaltet Header und Footer 
+    footskip=1cm                                                % Abstand zwischen Footer und wirklichem Textbereich
+}
+
+\setkomafont{section}                                           % Schriftart für 'section' Überschriften
+    {\fontsize{14pt}{18.8bp}\selectfont\bfseries}               
+\setkomafont{subsection}                                        % Schriftart für 'subsection' Überschriften
+    {\fontsize{13pt}{18.8bp}\selectfont\bfseries}
+\setkomafont{subsubsection}                                     % Schriftart für 'subsubsection' Überschriften
+    {\fontsize{12pt}{18.8bp}\selectfont\bfseries}
+\setkomafont{captionlabel}                                      % Schriftart für 'captionlabel' Überschriften
+    {\normalsize\selectfont\bfseries} 
+\setkomafont{caption}                                           % Schriftart für 'caption' Überschriften
+    {\small} 
+\KOMAoptions{
+    headsepline,                                                % Linie unter Header
+    toc=sectionentrywithdots                                    % Punkte im Inhaltsverzeichnis
+}                                        
+    
+\ihead{\@subtitle}                                            	% definiert inneren Head (einseitig: links)
+\ohead{\@author}                                                % definiert äußeren Head (einseitig: rechts)
+\pagenumbering{Roman}                                           % Seitenzahl erst auf Römisch
+\ofoot{\pagemark}												% definiert äußeren Fuß (einsetig: rechts)
+
+
+\setlist[enumChar]{
+    label=\Alph*., 
+    align=left,
+    leftmargin=4.75mm, 
+    labelwidth=3mm, 
+    labelsep=1.75mm, 
+    labelindent=0mm, 
+    itemindent=0mm,
+    topsep=-\parskip, 
+    noitemsep, 
+    partopsep=0pt
+}
+\setlist[enumchar]{
+    label=\alph*., 
+    align=left,
+    leftmargin=4.75mm, 
+    labelwidth=3mm, 
+    labelsep=1.75mm, 
+    labelindent=0mm, 
+    itemindent=0mm,
+    topsep=-\parskip, 
+    noitemsep, 
+    partopsep=0pt
+}
+\setlist[enumBar]{
+    label=--, 
+    align=left,
+    leftmargin=4.75mm, 
+    labelwidth=3mm, 
+    labelsep=1.75mm, 
+    labelindent=0mm, 
+    itemindent=0mm,
+    topsep=-\parskip, 
+    noitemsep, 
+    partopsep=0pt
+}
+\setlist[enumNum]{
+    label=\arabic*., 
+    align=left,
+    leftmargin=4.75mm, 
+    labelwidth=3mm, 
+    labelsep=1.75mm, 
+    labelindent=0mm, 
+    itemindent=0mm,
+    topsep=-\parskip, 
+    noitemsep, 
+    partopsep=0pt
+}
+
+\sisetup{
+		list-final-separator ={ und }, 							
+		list-pair-separator={ und }, 
+		separate-uncertainty=true, 
+		range-phrase={ bis }, 
+		per-mode=fraction										% Einheiten werden als Bruch dargestellt
+	}
+	
+\RequirePackage[scaled=0.92]{helvet}                            % Lädt Helvet (Skalierung verschönert Schriftbild) als serifenlose Familie
+\renewcommand{\familydefault}{\sfdefault}                       % Setzt Schriftbild auf serifenlose Schrift
+  
+\RequirePackage[onehalfspacing]{setspace}                       % Zeilenabstand
+
+
+
+% Befehl zur Darstellung der Titelseite
+\ifbool{titlepage}{
+    \renewcommand{\maketitle}{
+        \begin{titlepage}
+        \setcounter{page}{0}
+        
+        \begin{center}
+            \includegraphics[scale = 0.3, trim = 0mm 25mm 0mm 38mm, clip]{pic/Logo_HHU_+Name_vertikal_rgb_+Safezone.eps}\\
+            \vspace*{5mm}
+            \Large\textbf{\@institute}\\
+            \vfill
+            \vspace*{-50mm}
+            \line(1,0){450}\\[1mm]
+            \huge{\textbf{\@title}}\\[3mm]
+            \Large{\textbf{\@subtitle}}\\[1mm]
+            \line(1,0){450}\\
+            \vfill
+            \small{\@author 
+            \def\temp{}
+            \ifx\temp\@author
+                \relax
+            \else
+                \\
+            \fi
+            \@matriculation
+            \ifx\temp\@matriculation
+                \relax
+            \else
+                \\
+            \fi
+            \@authormail 
+            \def\temp{}
+            \ifx\temp\@authormail
+                \relax
+            \else
+                \\
+            \fi
+            \@group 
+            \def\temp{}
+            \ifx\temp\@group
+                \relax
+            \else
+                \\
+            \fi
+            \@date}
+        \end{center}
+        \end{titlepage}    
+    }
+}{}
+
+% Fügt Seite nach Inhaltsverzeichnis ein
+\renewcommand{\tableofcontents}{
+    \maketableofcontents						% wurde oben gespeichert
+    \cleardoubleoddpage
+}
+
+\AtBeginDocument{
+    \pagenumbering{arabic}                      % Seitenzahl nach Inhaltsverzeichnis auf Arabic
+    \ofoot{\pagemark}  
+}
+
+\setfootnoterule[]{\textwidth}
