@@ -13,6 +13,7 @@
 \newbool{sectionarco}
 \newbool{sectionlabel}
 \newbool{backref}
+\newbool{hyphenation}
 % ----------------------------------------------------
 
 % Setup
@@ -492,11 +493,23 @@
         \boolfalse{sectionlabel}
     }
 }
+\DeclareOptionX{preventhyphenation}{\ifstrequal{#1}{true}
+    {
+        \boolfalse{hyphenation}
+        \tolerance=1
+		\emergencystretch=\maxdimen
+		\hyphenpenalty=10000
+		\hbadness=10000
+    }{
+        \booltrue{hyphenation}
+    }
+}
 \ExecuteOptionsX{listoffigures=false}
 \ExecuteOptionsX{listoftables=false}
 \ExecuteOptionsX{acro=false}
 \ExecuteOptionsX{sectionarco=false}
 \ExecuteOptionsX{sectionlabel=false}
+\ExecuteOptionsX{preventhyphenation=false}
 \ProcessOptionsX\relax
 
 
