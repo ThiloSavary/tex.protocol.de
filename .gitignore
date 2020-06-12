@@ -21,6 +21,8 @@
 *.mtc1
 *.out
 *.synctex.gz
+*.loc
+*.soc
 Dokumentation_*
 !Dokumentation_*.pdf
 Beispiel_*
