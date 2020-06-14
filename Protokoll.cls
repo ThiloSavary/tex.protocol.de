@@ -477,7 +477,7 @@
     	\counterwithin*{figure}{section}
     	\counterwithin*{equation}{section}
     	\counterwithin*{table}{section}
-    	\counterwithin*{table}{section}
+    	\counterwithin*{Diagramm}{section}
     }{
         \boolfalse{sectionlabel}
     }
