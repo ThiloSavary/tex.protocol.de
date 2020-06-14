@@ -220,11 +220,7 @@
     {url}                                                       % Ermöglicht Links 
 \RequirePackage[
     unicode=true,                                               % Akzeptiert UTF8
-	pdfborder={0 0 0},                                          
-	linkcolor={blue},                                           
-	filecolor={green},                                      
-	urlcolor={red}, 
-	citecolor={blue},]                                      
+	pdfborder={0 0 0},                                        ]                                      
 	{hyperref}                                                  % Erlaubt Referenzierung und Anpassung dieser innerhalb des Dokumentes
 \urlstyle{same}													% Links übernehmen Schriftstil
 
