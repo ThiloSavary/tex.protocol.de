@@ -89,7 +89,8 @@ pgfplotstable | `Alpha: 1.0.0` | Erzeugt Tabellen aus externen Dateien
 xcolor | `Alpha: 1.0.0` | Ermöglicht farbige Texte und Boxen
 changes | `Alpha: 1.0.0` | Ermöglicht Kommentare
 qrcode | `Alpha: 1.0.0` | Stellt QRCodes zur Verfügung
-
+helvet | `Alpha: 1.0.0` `HHU_Default` | Lädt die Schriftart Helvet
+setspace | `Alpha: 1.0.0` `HHU_Default` | Ermöglicht die Beeinflussung vom Zeilenabstand
 
 ---
 #### Stile
