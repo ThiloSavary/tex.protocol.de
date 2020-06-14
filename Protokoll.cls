@@ -436,13 +436,6 @@
         \boolfalse{listoftables}
     }
 }
-\DeclareOptionX{acrolist}{\ifstrequal{#1}{true}
-    {
-        
-    }{
-        \boolfalse{acrolist}
-    }
-}
 \DeclareOptionX{acro}{\ifstrequal{#1}{true}
     {
         \booltrue{acro}
