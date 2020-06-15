@@ -15,6 +15,16 @@ Darüber hinaus stellt das Paket eine große Zahl an nützlichen Befehlen zur Ve
 Über die Pakete im Ordner *Styles* werden vordefinierte [Stile](#Stile) angeboten.
 
 ---
+
+#### Installation
+
+Um dieses Paket zu nutzen, muss es einfach runtergeladen werden. Im Verzeichnis kann dann eine LaTeX Datei angelegt werden, welche die Klasse und optional die Stile importiert.
+
+`\documentclass[]{Protokoll}`
+
+`\usepackage{Styles/HHU_Default}`
+
+---
 #### Pakete
 
 Paket | Seit&nbsp;Version&nbsp;&nbsp;&nbsp;&nbsp; | Nutzen
