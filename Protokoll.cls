@@ -70,7 +70,8 @@
 \RequirePackage[]{scrlayer-scrpage}                                          % Weitere Anpassungen von Seitenlayout /Header & footer
 \automark[section]{section}
 
-\parindent 0ex                                                  % Einrückung bei Absatz
+\setlength{\parindent}{0ex}										% Einrückung bei Absatz
+                                                 
 
 \setlength{\itemsep}{20pt}                                      % Enumerate Listen Abstand
 

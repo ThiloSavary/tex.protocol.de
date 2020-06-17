@@ -2,7 +2,10 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
-n/A
+### Protokoll.cls
+##### Changed
+- Kernel
+  - *~~\\parindent 0ex~~* &#8594; *\setlength{\parindent}{0ex}*
 
 ## [v0.0.1-alpha] - 2020/06/15
 ### Protokoll.cls
@@ -115,6 +118,8 @@ n/A
 - Kernel
   - tables
     - arraystretch *~~1~~* &#8594; *1.2*
+  - lengths
+    - parindent *~~\\parindent~~* &#8594; *0 px*
 - changes
   - commands
     - *~~\\comment~~* &#8594; *\\changecomment*
