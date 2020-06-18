@@ -11,6 +11,11 @@ All notable changes to this project will be documented in this file.
   - commands
     - **Bugfix** *\\changecomment* works now as intended
 
+#### Enviroments
+##### Added
+- preventHyphenation <br> *text enviroment*; prevents Hyphenation disregarding the global settings 
+- allowHyphenation <br> *text enviroment*; allows Hyphenation disregarding the global settings
+
 ## [v0.0.1-alpha] - 2020/06/15
 ### Protokoll.cls
 #### Packages
