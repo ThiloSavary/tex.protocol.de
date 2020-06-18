@@ -3,9 +3,13 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 ### Protokoll.cls
+#### Configuration
 ##### Changed
 - Kernel
   - *~~\\parindent 0ex~~* &#8594; *\setlength{\parindent}{0ex}*
+- changes
+  - commands
+    - **Bugfix** *\\changecomment* works now as intended
 
 ## [v0.0.1-alpha] - 2020/06/15
 ### Protokoll.cls
