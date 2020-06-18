@@ -306,7 +306,7 @@
 % Gestaltung
 \RequirePackage{xcolor}                                         % Farbige Texte und Boxen
 
-\let\oldcomment = \oldcomment
+\let\oldcomment = \comment
 \let\comment\undefined
 \RequirePackage[commentmarkup=margin]{changes}
 \let\changecomment\comment
