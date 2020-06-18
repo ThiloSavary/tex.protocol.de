@@ -385,26 +385,26 @@
 
 % Hypentation Enviroments
 \NewEnviron{preventHyphenation}{
+	{
+	\begingroup
     \tolerance=1
 	\emergencystretch=\maxdimen
 	\hyphenpenalty=10000
 	\hbadness=10000
 	\BODY
-	\tolerance=\defaulttolerance
-	\emergencystretch=\defaultemergencystretch
-	\hyphenpenalty=\defaulthyphenpenalty
-	\hbadness=\defaulthbadness
+	\endgroup
+ 	}
 }
 \NewEnviron{allowHyphenation}{
-    \tolerance=\oldtolerance
-	\emergencystretch=\oldemergencystretch
-	\hyphenpenalty=\oldhyphenpenalty
-	\hbadness=\oldhbadness
+	{
+	\begingroup
+    \tolerance=200
+	\emergencystretch=9.99756pt
+	\hyphenpenalty=50
+	\hbadness=1000
 	\BODY
-	\tolerance=\defaulttolerance
-	\emergencystretch=\defaultemergencystretch
-	\hyphenpenalty=\defaulthyphenpenalty
-	\hbadness=\defaulthbadness
+ 	\endgroup
+ 	}
 }
 
 % ----------------------------------------------------
@@ -533,11 +533,6 @@
 		\emergencystretch=\maxdimen
 		\hyphenpenalty=10000
 		\hbadness=10000
-		
-		\defaulttolerance=1
-		\defaultemergencystretch=\maxdimen
-		\defaulthyphenpenalty=10000
-		\defaulthbadness=10000
     }{
         \booltrue{hyphenation}
     }
