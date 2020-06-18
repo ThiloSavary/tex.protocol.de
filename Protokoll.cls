@@ -16,6 +16,21 @@
 \newbool{hyphenation}
 % ----------------------------------------------------
 
+% ----------------------------------------------------
+%Macro 
+%Saving old Hyphentation values to fall back on
+\let\oldtolerance=\tolerance
+\let\oldemergencystretch=\emergencystretch
+\let\oldhyphenpenalty=\hyphenpenalty
+\let\oldhbadness=\hbadness
+
+%Defining default values
+\let\defaulttolerance=\tolerance
+\let\defaultemergencystretch=\emergencystretch
+\let\defaulthyphenpenalty=\hyphenpenalty
+\let\defaulthbadness=\hbadness
+% ----------------------------------------------------
+
 % Setup
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{Protocoll}[2019/10/12]
@@ -365,6 +380,34 @@
 % ----------------------------------------------------
 
 
+% ----------------------------------------------------
+% Custom Coding
+
+% Hypentation Enviroments
+\NewEnviron{preventHyphenation}{
+    \tolerance=1
+	\emergencystretch=\maxdimen
+	\hyphenpenalty=10000
+	\hbadness=10000
+	\BODY
+	\tolerance=\defaulttolerance
+	\emergencystretch=\defaultemergencystretch
+	\hyphenpenalty=\defaulthyphenpenalty
+	\hbadness=\defaulthbadness
+}
+\NewEnviron{allowHyphenation}{
+    \tolerance=\oldtolerance
+	\emergencystretch=\oldemergencystretch
+	\hyphenpenalty=\oldhyphenpenalty
+	\hbadness=\oldhbadness
+	\BODY
+	\tolerance=\defaulttolerance
+	\emergencystretch=\defaultemergencystretch
+	\hyphenpenalty=\defaulthyphenpenalty
+	\hbadness=\defaulthbadness
+}
+
+% ----------------------------------------------------
 % Bibliothek wird eingefügt
 \newcommand{\makebibliography}[2]{
     \pagebreak
@@ -490,6 +533,11 @@
 		\emergencystretch=\maxdimen
 		\hyphenpenalty=10000
 		\hbadness=10000
+		
+		\defaulttolerance=1
+		\defaultemergencystretch=\maxdimen
+		\defaulthyphenpenalty=10000
+		\defaulthbadness=10000
     }{
         \booltrue{hyphenation}
     }
