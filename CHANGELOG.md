@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+-n/A
+
+## [v0.0.2-alpha] - 2020/06/19
 ### Protokoll.cls
 #### Configuration
 ##### Changed
@@ -329,5 +332,6 @@ at the end of the entries
 
 
 <!--[Unreleased]: https://github.com/ThiloSavary/tex.protocol.de/-->
-[Unreleased]: https://github.com/ThiloSavary/tex.protocol.de/compare/v0.0.1-apha...HEAD
+[Unreleased]: https://github.com/ThiloSavary/tex.protocol.de/compare/v0.0.2-apha...HEAD
 [v0.0.1-alpha]: https://github.com/ThiloSavary/tex.protocol.de/releases/tag/v0.0.1-alpha
+[v0.0.2-alpha]: https://github.com/ThiloSavary/tex.protocol.de/compare/v0.0.2-apha...v0.0.1-apha
