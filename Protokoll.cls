@@ -16,9 +16,24 @@
 \newbool{hyphenation}
 % ----------------------------------------------------
 
+% ----------------------------------------------------
+%Macro 
+%Saving old Hyphentation values to fall back on
+\let\oldtolerance=\tolerance
+\let\oldemergencystretch=\emergencystretch
+\let\oldhyphenpenalty=\hyphenpenalty
+\let\oldhbadness=\hbadness
+
+%Defining default values
+\let\defaulttolerance=\tolerance
+\let\defaultemergencystretch=\emergencystretch
+\let\defaulthyphenpenalty=\hyphenpenalty
+\let\defaulthbadness=\hbadness
+% ----------------------------------------------------
+
 % Setup
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Protocoll}[2019/10/12]
+\ProvidesClass{Protokoll}[2019/10/12]
 
 \LoadClass[
     10pt,                                                           % Schriftgröße 10pt
@@ -70,7 +85,8 @@
 \RequirePackage[]{scrlayer-scrpage}                                          % Weitere Anpassungen von Seitenlayout /Header & footer
 \automark[section]{section}
 
-\parindent 0ex                                                  % Einrückung bei Absatz
+\setlength{\parindent}{0ex}										% Einrückung bei Absatz
+                                                 
 
 \setlength{\itemsep}{20pt}                                      % Enumerate Listen Abstand
 
@@ -305,7 +321,7 @@
 % Gestaltung
 \RequirePackage{xcolor}                                         % Farbige Texte und Boxen
 
-\let\oldcomment = \oldcomment
+\let\oldcomment = \comment
 \let\comment\undefined
 \RequirePackage[commentmarkup=margin]{changes}
 \let\changecomment\comment
@@ -364,6 +380,34 @@
 % ----------------------------------------------------
 
 
+% ----------------------------------------------------
+% Custom Coding
+
+% Hypentation Enviroments
+\NewEnviron{preventHyphenation}{
+	{
+	\begingroup
+    \tolerance=1
+	\emergencystretch=\maxdimen
+	\hyphenpenalty=10000
+	\hbadness=10000
+	\BODY
+	\endgroup
+ 	}
+}
+\NewEnviron{allowHyphenation}{
+	{
+	\begingroup
+    \tolerance=200
+	\emergencystretch=9.99756pt
+	\hyphenpenalty=50
+	\hbadness=1000
+	\BODY
+ 	\endgroup
+ 	}
+}
+
+% ----------------------------------------------------
 % Bibliothek wird eingefügt
 \newcommand{\makebibliography}[2]{
     \pagebreak
@@ -403,8 +447,6 @@
 \ExecuteOptionsX{showframe=false}
 \ExecuteOptionsX{titlepage=true}
 \ExecuteOptionsX{tableofcontent=true}
-\ProcessOptionsX\relax
-
 
 \AtBeginDocument{%
     \sisetup{detect-all}                                            % Siunits erkennt aktuelle Schriftart 
@@ -499,8 +541,6 @@
 \ExecuteOptionsX{sectionarco=false}
 \ExecuteOptionsX{sectionlabel=false}
 \ExecuteOptionsX{preventhyphenation=false}
-\ProcessOptionsX\relax
-
 
 \DeclareOption{backref}{
     \booltrue{backref}
@@ -518,7 +558,9 @@
 
         }
 }
-\ProcessOptions\relax
+\DeclareOption*{\ClassWarning{Protokoll}{‘\CurrentOption’ ignored}}
+\DeclareOptionX*{\ClassWarning{Protokoll}{‘\CurrentOption’ ignored}}
+\ProcessOptionsX*\relax
 %-----------------------------------------------------
 % Externe Datein
 \import{}{Includes/si_konstanten.tex}

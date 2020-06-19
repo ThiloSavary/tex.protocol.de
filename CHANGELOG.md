@@ -2,7 +2,32 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
-n/A
+-n/A
+
+## [v0.0.2-alpha] - 2020/06/19
+### Protokoll.cls
+#### Configuration
+##### Changed
+- Kernel
+  - *~~\\parindent 0ex~~* &#8594; *\setlength{\parindent}{0ex}*
+- changes
+  - commands
+    - **Bugfix** *\\changecomment* works now as intended
+
+#### Enviroments
+##### Added
+- preventHyphenation <br> *text enviroment*; prevents Hyphenation disregarding the global settings
+- allowHyphenation <br> *text enviroment*; allows Hyphenation disregarding the global settings
+
+### Styles/HHU_Default.sty
+#### Documentlayout
+##### Changed Modification
+- footer
+  - footnoterule
+    - *~~\\textwidth~~* &#8594; *\\columnwidth*
+
+### ~~pic/Blank.png~~
+- removed
 
 ## [v0.0.1-alpha] - 2020/06/15
 ### Protokoll.cls
@@ -115,6 +140,8 @@ n/A
 - Kernel
   - tables
     - arraystretch *~~1~~* &#8594; *1.2*
+  - lengths
+    - parindent *~~\\parindent~~* &#8594; *0 px*
 - changes
   - commands
     - *~~\\comment~~* &#8594; *\\changecomment*
@@ -305,5 +332,6 @@ at the end of the entries
 
 
 <!--[Unreleased]: https://github.com/ThiloSavary/tex.protocol.de/-->
-[Unreleased]: https://github.com/ThiloSavary/tex.protocol.de/compare/v0.0.1-apha...HEAD
+[Unreleased]: https://github.com/ThiloSavary/tex.protocol.de/compare/v0.0.2-apha...HEAD
 [v0.0.1-alpha]: https://github.com/ThiloSavary/tex.protocol.de/releases/tag/v0.0.1-alpha
+[v0.0.2-alpha]: https://github.com/ThiloSavary/tex.protocol.de/compare/v0.0.2-apha...v0.0.1-apha

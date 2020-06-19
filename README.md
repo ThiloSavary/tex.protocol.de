@@ -1,5 +1,5 @@
 # LaTeX Klasse: Protokoll
-![Version 0.0.1 Badge][version-badge]
+![Version 0.0.2 Badge][version-badge]
 
 [Changelog](CHANGELOG.md)
 
@@ -110,4 +110,4 @@ Stil | <nobr>Seit Version</nobr> | Nutzen
 HHU_Default | `Alpha: 0.0.1` | Protokoll für die Heinrich-Heine-Universität
 
 
-[version-badge]: https://img.shields.io/badge/version-Alpha_0.0.1-blue.svg
+[version-badge]: https://img.shields.io/badge/version-Alpha_0.0.2-blue.svg
