@@ -17,20 +17,6 @@
 % ----------------------------------------------------
 
 % ----------------------------------------------------
-%Macro 
-%Saving old Hyphentation values to fall back on
-\let\oldtolerance=\tolerance
-\let\oldemergencystretch=\emergencystretch
-\let\oldhyphenpenalty=\hyphenpenalty
-\let\oldhbadness=\hbadness
-
-%Defining default values
-\let\defaulttolerance=\tolerance
-\let\defaultemergencystretch=\emergencystretch
-\let\defaulthyphenpenalty=\hyphenpenalty
-\let\defaulthbadness=\hbadness
-% ----------------------------------------------------
-
 % Setup
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{Protokoll}[2019/10/12]
