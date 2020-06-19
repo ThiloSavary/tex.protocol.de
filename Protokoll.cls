@@ -33,7 +33,7 @@
 
 % Setup
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Protocoll}[2019/10/12]
+\ProvidesClass{Protokoll}[2019/10/12]
 
 \LoadClass[
     10pt,                                                           % Schriftgröße 10pt
@@ -447,8 +447,6 @@
 \ExecuteOptionsX{showframe=false}
 \ExecuteOptionsX{titlepage=true}
 \ExecuteOptionsX{tableofcontent=true}
-\ProcessOptionsX\relax
-
 
 \AtBeginDocument{%
     \sisetup{detect-all}                                            % Siunits erkennt aktuelle Schriftart 
@@ -543,8 +541,6 @@
 \ExecuteOptionsX{sectionarco=false}
 \ExecuteOptionsX{sectionlabel=false}
 \ExecuteOptionsX{preventhyphenation=false}
-\ProcessOptionsX\relax
-
 
 \DeclareOption{backref}{
     \booltrue{backref}
@@ -562,7 +558,9 @@
 
         }
 }
-\ProcessOptions\relax
+\DeclareOption*{\ClassWarning{Protokoll}{‘\CurrentOption’ ignored}}
+\DeclareOptionX*{\ClassWarning{Protokoll}{‘\CurrentOption’ ignored}}
+\ProcessOptionsX*\relax
 %-----------------------------------------------------
 % Externe Datein
 \import{}{Includes/si_konstanten.tex}
