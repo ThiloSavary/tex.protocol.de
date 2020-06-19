@@ -23,6 +23,9 @@ All notable changes to this project will be documented in this file.
   - footnoterule
     - *~~\\textwidth~~* &#8594; *\\columnwidth*
 
+### ~~pic/Blank.png~~
+- removed
+
 ## [v0.0.1-alpha] - 2020/06/15
 ### Protokoll.cls
 #### Packages
