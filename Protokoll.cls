@@ -301,6 +301,8 @@
 \renewcommand{\arraystretch}{1.2}                               % Abstand von Zeilen in Tabellen
 %\setlength{\tabcolsep}{1pt}                                    % Abstand der Cols in Tabellen
 
+\RequirePackage{xltabular}										% Allows longtable with tabluarx (xltabular)
+
 % ----------------------------------------------------
 
 % ----------------------------------------------------

@@ -101,6 +101,7 @@ changes | `Alpha: 0.0.1` | Ermöglicht Kommentare
 qrcode | `Alpha: 0.0.1` | Stellt QRCodes zur Verfügung
 helvet | `Alpha: 0.0.1` `HHU_Default` | Lädt die Schriftart Helvet
 setspace | `Alpha: 0.0.1` `HHU_Default` | Ermöglicht die Beeinflussung vom Zeilenabstand
+xltabular | `Alpha: 0.0.3` | Ermöglicht Tabellen deren Breite definierbar ist und die über mehrere Seiten gehen können
 
 ---
 #### Stile
