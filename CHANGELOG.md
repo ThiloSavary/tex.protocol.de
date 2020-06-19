@@ -13,8 +13,15 @@ All notable changes to this project will be documented in this file.
 
 #### Enviroments
 ##### Added
-- preventHyphenation <br> *text enviroment*; prevents Hyphenation disregarding the global settings 
+- preventHyphenation <br> *text enviroment*; prevents Hyphenation disregarding the global settings
 - allowHyphenation <br> *text enviroment*; allows Hyphenation disregarding the global settings
+
+### Styles/HHU_Default.sty
+#### Documentlayout
+##### Changed Modification
+- footer
+  - footnoterule
+    - *~~\\textwidth~~* &#8594; *\\columnwidth*
 
 ## [v0.0.1-alpha] - 2020/06/15
 ### Protokoll.cls
