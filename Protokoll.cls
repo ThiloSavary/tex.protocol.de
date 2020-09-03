@@ -14,6 +14,8 @@
 \newbool{sectionlabel}
 \newbool{backref}
 \newbool{hyphenation}
+
+\def\@abstractcontent{}
 % ----------------------------------------------------
 
 % ----------------------------------------------------
@@ -30,6 +32,8 @@
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrartcl}}		% Unbekannte Befehle an scrartcl
 \ProcessOptions\relax
+
+\newcommand{\Abstract}[1]{\def\@abstractcontent{#1}}
 % ----------------------------------------------------
 
 % ----------------------------------------------------
@@ -366,7 +370,7 @@
 
 % ----------------------------------------------------
 % Zusatz
-%\RequirePackage{filecontents}                                  % Dateien dürfen überschrieben werden 
+%\RequirePackage{filecontents}                                   % Dateien dürfen überschrieben werden 
 \RequirePackage[]{qrcode}                                       % Generiert QRCodes
 % ----------------------------------------------------
 
@@ -399,6 +403,8 @@
  	\endgroup
  	}
 }
+
+\newcommand{\@printAbstract}{\@abstractcontent}
 
 % ----------------------------------------------------
 % Bibliothek wird eingefügt
@@ -444,6 +450,7 @@
 \AtBeginDocument{%
     \sisetup{detect-all}                                            % Siunits erkennt aktuelle Schriftart 
 	\maketitle
+	\@printAbstract
 	\tableofcontents
 
 	\setcounter{page}{1}
