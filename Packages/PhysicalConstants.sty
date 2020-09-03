@@ -1,0 +1,35 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{Packages/PhysicalConstants}[2020/00/03]
+
+\@ifpackageloaded{siunitx}{\relax}{
+	\PackageError{PhysicalConstants}{Package 'siunitx' not loaded. }{}
+}
+\@ifpackageloaded{etoolbox}{\relax}{
+	\PackageError{PhysicalConstants}{Package 'etoolbox' not loaded. }{}
+}
+
+\newtoggle{PConstKnown}
+
+\ifcsdef{PConst}{
+	\PackageWarning{PhysicalConstants}{Command 'PConst' already exists.}{}
+}{
+	\newcommand{\PConst}[2][]{
+		\togglefalse{PConstKnown}
+		\ifstrequal{#2}{faraday}{
+			\SI[#1]{96485,332}{\ampere\second\per\mol}
+			\toggletrue{PConstKnown}
+		}
+		
+		\nottoggle{PConstKnown}{\PackageError{PhysicalConstants}{Physical Constant '#2' unknown. }{}}
+	}
+}
+
+
+
+\ifcsdef{faraday}{
+	\PackageWarning{PhysicalConstants}{Command 'faraday' already exists.}{}
+}{
+	\newcommand{\faraday}[1][]{
+		\SI[#1]{96485,332}{\ampere\second\per\mol}
+	}
+}

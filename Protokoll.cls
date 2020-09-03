@@ -200,6 +200,11 @@
 }
 
 \RequirePackage[]{physics}										% Viele kleine nütliche Mathematische Ausdrücke eg \dx
+
+
+\@ifpackageloaded{PhysicalConstants}{\relax}{
+	\usepackage{Packages/PhysicalConstants}
+}
 % ----------------------------------------------------
 
 % ----------------------------------------------------
@@ -549,7 +554,4 @@
 \DeclareOption*{\ClassWarning{Protokoll}{‘\CurrentOption’ ignored}}
 \DeclareOptionX*{\ClassWarning{Protokoll}{‘\CurrentOption’ ignored}}
 \ProcessOptionsX*\relax
-%-----------------------------------------------------
-% Externe Datein
-\import{}{Includes/si_konstanten.tex}
 
