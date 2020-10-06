@@ -82,7 +82,7 @@
 
 \RequirePackage[]{tocbasic}                                     % Ermöglicht Anpassungen des TOC
 
-\clearscrheadfoot                                               % leert alle Header and Footer
+\clearpairofpagestyles                                          % leert alle Header and Footer
 
 \RequirePackage{tabto}                                          % tab Befelhl
 
