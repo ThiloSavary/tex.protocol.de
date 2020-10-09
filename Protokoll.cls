@@ -137,6 +137,16 @@
      before upper=\indent, parbox=false, #1}
      
 \RequirePackage{subcaption}
+
+\NewEnviron{scaletikzpicturetowidth}[1]{%
+  \def\tikz@width{#1}%
+  \def\tikzscale{1}\begin{lrbox}{\measure@tikzpicture}%
+  \BODY
+  \end{lrbox}%
+  \pgfmathparse{#1/\wd\measure@tikzpicture}%
+  \edef\tikzscale{\pgfmathresult}%
+  \BODY
+}
 % ----------------------------------------------------
 
 
