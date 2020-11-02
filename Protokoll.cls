@@ -14,23 +14,11 @@
 \newbool{sectionlabel}
 \newbool{backref}
 \newbool{hyphenation}
+
+\def\@abstractcontent{}
 % ----------------------------------------------------
 
 % ----------------------------------------------------
-%Macro 
-%Saving old Hyphentation values to fall back on
-\let\oldtolerance=\tolerance
-\let\oldemergencystretch=\emergencystretch
-\let\oldhyphenpenalty=\hyphenpenalty
-\let\oldhbadness=\hbadness
-
-%Defining default values
-\let\defaulttolerance=\tolerance
-\let\defaultemergencystretch=\emergencystretch
-\let\defaulthyphenpenalty=\hyphenpenalty
-\let\defaulthbadness=\hbadness
-% ----------------------------------------------------
-
 % Setup
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{Protokoll}[2019/10/12]
@@ -44,6 +32,8 @@
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrartcl}}		% Unbekannte Befehle an scrartcl
 \ProcessOptions\relax
+
+\newcommand{\Abstract}[1]{\def\@abstractcontent{#1}}
 % ----------------------------------------------------
 
 % ----------------------------------------------------
@@ -92,7 +82,7 @@
 
 \RequirePackage[]{tocbasic}                                     % Ermöglicht Anpassungen des TOC
 
-\clearscrheadfoot                                               % leert alle Header and Footer
+\clearpairofpagestyles                                          % leert alle Header and Footer
 
 \RequirePackage{tabto}                                          % tab Befelhl
 
@@ -147,6 +137,16 @@
      before upper=\indent, parbox=false, #1}
      
 \RequirePackage{subcaption}
+
+\NewEnviron{scaletikzpicturetowidth}[1]{%
+  \def\tikz@width{#1}%
+  \def\tikzscale{1}\begin{lrbox}{\measure@tikzpicture}%
+  \BODY
+  \end{lrbox}%
+  \pgfmathparse{#1/\wd\measure@tikzpicture}%
+  \edef\tikzscale{\pgfmathresult}%
+  \BODY
+}
 % ----------------------------------------------------
 
 
@@ -214,6 +214,11 @@
 }
 
 \RequirePackage[]{physics}										% Viele kleine nütliche Mathematische Ausdrücke eg \dx
+
+
+\@ifpackageloaded{PhysicalConstants}{\relax}{
+	\usepackage{Packages/PhysicalConstants}
+}
 % ----------------------------------------------------
 
 % ----------------------------------------------------
@@ -315,6 +320,8 @@
 \renewcommand{\arraystretch}{1.2}                               % Abstand von Zeilen in Tabellen
 %\setlength{\tabcolsep}{1pt}                                    % Abstand der Cols in Tabellen
 
+\RequirePackage{xltabular}										% Allows longtable with tabluarx (xltabular)
+
 % ----------------------------------------------------
 
 % ----------------------------------------------------
@@ -373,7 +380,7 @@
 
 % ----------------------------------------------------
 % Zusatz
-%\RequirePackage{filecontents}                                  % Dateien dürfen überschrieben werden 
+%\RequirePackage{filecontents}                                   % Dateien dürfen überschrieben werden 
 \RequirePackage[]{qrcode}                                       % Generiert QRCodes
 % ----------------------------------------------------
 
@@ -406,6 +413,8 @@
  	\endgroup
  	}
 }
+
+\newcommand{\@printAbstract}{\@abstractcontent}
 
 % ----------------------------------------------------
 % Bibliothek wird eingefügt
@@ -451,6 +460,7 @@
 \AtBeginDocument{%
     \sisetup{detect-all}                                            % Siunits erkennt aktuelle Schriftart 
 	\maketitle
+	\@printAbstract
 	\tableofcontents
 
 	\setcounter{page}{1}
@@ -561,7 +571,4 @@
 \DeclareOption*{\ClassWarning{Protokoll}{‘\CurrentOption’ ignored}}
 \DeclareOptionX*{\ClassWarning{Protokoll}{‘\CurrentOption’ ignored}}
 \ProcessOptionsX*\relax
-%-----------------------------------------------------
-% Externe Datein
-\import{}{Includes/si_konstanten.tex}
 
