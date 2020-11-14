@@ -2,10 +2,29 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+
+## [v0.0.3-alpha] - 2020/10/02
 ### Protokoll.cls
 #### Packages
 ##### Added
 - xltabular
+- PhysicalConstants
+
+#### Commands
+##### Added
+- \\Abstract{Abstract\<LaTeX\>} <br> Creates an Abstract before Table of Contents
+
+#### Enviroments
+##### Added
+- scaletikzpicturetowidth{width\<LaTeXWidht\>} <br> Creates an Enviroment where the contained TikZ Picture is scaled to the given width
+
+#### Bugfix
+- changed from deprecated *~~\\clearscrheadfoot~~* to *\\clearpairofpagestyles*
+
+### PhysicalConstants.sty
+Created package for constants
+
+
 
 ## [v0.0.2-alpha] - 2020/06/19
 ### Protokoll.cls
@@ -335,6 +354,7 @@ at the end of the entries
 
 
 <!--[Unreleased]: https://github.com/ThiloSavary/tex.protocol.de/-->
-[Unreleased]: https://github.com/ThiloSavary/tex.protocol.de/compare/v0.0.2-apha...HEAD
+[Unreleased]: https://github.com/ThiloSavary/tex.protocol.de/compare/v0.0.3-alpha...HEAD
 [v0.0.1-alpha]: https://github.com/ThiloSavary/tex.protocol.de/releases/tag/v0.0.1-alpha
-[v0.0.2-alpha]: https://github.com/ThiloSavary/tex.protocol.de/compare/v0.0.2-apha...v0.0.1-apha
+[v0.0.2-alpha]: https://github.com/ThiloSavary/tex.protocol.de/compare/v0.0.2-alpha...v0.0.1-alpha
+[v0.0.3-alpha]: https://github.com/ThiloSavary/tex.protocol.de/compare/v0.0.3-alpha...v0.0.2-alpha

@@ -1,5 +1,5 @@
 # LaTeX Klasse: Protokoll
-![Version 0.0.2 Badge][version-badge]
+![Version 0.0.3 Badge][version-badge]
 
 [Changelog](CHANGELOG.md)
 
@@ -102,6 +102,7 @@ qrcode | `Alpha: 0.0.1` | Stellt QRCodes zur Verfügung
 helvet | `Alpha: 0.0.1` `HHU_Default` | Lädt die Schriftart Helvet
 setspace | `Alpha: 0.0.1` `HHU_Default` | Ermöglicht die Beeinflussung vom Zeilenabstand
 xltabular | `Alpha: 0.0.3` | Ermöglicht Tabellen deren Breite definierbar ist und die über mehrere Seiten gehen können
+PhysicalConstants | `Alpha: 0.0.3` | **Eigenes Packet** Enthält Naturkonstanten
 
 ---
 #### Stile
@@ -111,4 +112,4 @@ Stil | <nobr>Seit Version</nobr> | Nutzen
 HHU_Default | `Alpha: 0.0.1` | Protokoll für die Heinrich-Heine-Universität
 
 
-[version-badge]: https://img.shields.io/badge/version-Alpha_0.0.2-blue.svg
+[version-badge]: https://img.shields.io/badge/version-Alpha_0.0.3-blue.svg
