@@ -292,6 +292,11 @@
 \RequirePackage[acronym,nopostdot,style=super,nonumberlist,toc,nowarn]{glossaries}
 \glsdisablehyper
 \input{Includes/acro.tex}
+
+\creflabelformat{equation}{#2\textup{#1}#3}						% Ändert die Referezierung von Formel (1) zu Formel 1, entfernt also die Klammern
+\creflabelformat{figure}{#2\textup{#1}#3}						% "
+\creflabelformat{Diagramm}{#2\textup{#1}#3}						% "
+\creflabelformat{table}{#2\textup{#1}#3}						% "
 % ----------------------------------------------------
 
 % ----------------------------------------------------
@@ -524,10 +529,10 @@
 \DeclareOptionX{sectionlabel}{\ifstrequal{#1}{true}
     {
         \booltrue{sectionlabel}
-        \renewcommand{\theequation}{\arabic{section}. \arabic{equation}}
-    	\renewcommand{\thefigure}{\arabic{section}. \arabic{figure}}
-    	\renewcommand{\thetable}{\arabic{section}. \arabic{table}}
-    	\renewcommand{\theDiagramm}{\arabic{section}. \arabic{Diagramm}}
+        \renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+    	\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
+    	\renewcommand{\thetable}{\arabic{section}.\arabic{table}}
+    	\renewcommand{\theDiagramm}{\arabic{section}.\arabic{Diagramm}}	
     	\counterwithin*{figure}{section}
     	\counterwithin*{equation}{section}
     	\counterwithin*{table}{section}
