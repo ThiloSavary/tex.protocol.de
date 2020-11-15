@@ -54,7 +54,7 @@
 
 \RequirePackage[]{environ}                                      % Erleichtert Erstellung von Umgebungen
 
-\usepackage{chngcntr}                                           % Ermöglicht Kontrolle über den Reset von Countern nach Gliederungen
+\RequirePackage{chngcntr}                                           % Ermöglicht Kontrolle über den Reset von Countern nach Gliederungen
 
 \setlength{\emergencystretch}{1em}                              % Reduziert Fehlermeldungen --> mit Vorsicht benutzen!
 % ----------------------------------------------------
@@ -124,6 +124,9 @@
 \pgfplotsset{compat=1.16}                                       % Version von PGFPlot
 \usetikzlibrary{intersections}                                  % Erweiterte Bibliothek für PFGPlot
 \usetikzlibrary{decorations.pathmorphing}                       % Erweiterte Bibliothek für PFGPlot
+\usetikzlibrary{shadows}
+\usetikzlibrary{external}
+\tikzexternalize[prefix=tikz/] 
 
 \RequirePackage{float}                                          % Ermöglicht Floats um Objekte von Text um fließen zu lassen
 
@@ -271,8 +274,6 @@
 
 \usepackage{tablefootnote}										% Ermöglicht footnotes aus Table Floats
 
-\usepackage[nolist, printonlyused]{acronym}						% Ermöglicht Abkürzungen per \ac
-
 %\renewcommand\@biblabel[1]{#1.}                                % Editiert das Label in Literaturverzeichnis (statt [1.] --> #1)
 
 
@@ -287,6 +288,10 @@
 %\renewcommand{\theDiagramm}{\Alph{Diagramm}}                   % Setzt den Counter auf A, B, C
 
 \RequirePackage[]{lastpage}                                     % Erlaubt Ref auf letzte Seite
+
+\RequirePackage[acronym,nopostdot,style=super,nonumberlist,toc,nowarn]{glossaries}
+\glsdisablehyper
+\input{Includes/acro.tex}
 % ----------------------------------------------------
 
 % ----------------------------------------------------
@@ -374,7 +379,8 @@
   \endgroup
 }
    
-
+\usepackage[]{todonotes}
+\renewcommand{\todo}[2][]{\tikzexternaldisable\@todo[#1]{#2}\tikzexternalenable}
 
 % ----------------------------------------------------
 
@@ -415,7 +421,7 @@
 }
 
 \newcommand{\@printAbstract}{\@abstractcontent}
-
+\newcommand{\@printAcro}{\relax}
 % ----------------------------------------------------
 % Bibliothek wird eingefügt
 \newcommand{\makebibliography}[2]{
@@ -491,19 +497,15 @@
 \DeclareOptionX{acro}{\ifstrequal{#1}{true}
     {
         \booltrue{acro}
-        \AtEndDocument{
-		    \import{}{Includes/acro.tex}
-	    }
+		\makeglossaries
     }{
         \ifstrequal{#1}{list}{
             \booltrue{acro}
             \booltrue{acrolist}
-            \AC@nolistfalse
+			\makeglossaries
     	    \AtEndDocument{
     		    \clearpage
-    		    \section*{Abkürzungsverzeichnis}
-    		    \addcontentsline{toc}{section}{Abkürzungsverzeichnis}
-    		    \import{}{Includes/acro.tex}
+    		    \printglossary[type=\acronymtype,title={Abkürzungsverzeichnis}]
     	    }
         }{
             \boolfalse{acro}
@@ -572,3 +574,28 @@
 \DeclareOptionX*{\ClassWarning{Protokoll}{‘\CurrentOption’ ignored}}
 \ProcessOptionsX*\relax
 
+%-----------------------------------------------------------------------------
+%								Deprecated
+%-----------------------------------------------------------------------------
+
+
+\NewEnviron{acronym}{%
+	\PackageWarning{examplepackage}{Acronym deprecated}
+}
+\newcommand{\ac}{\PackageWarning{examplepackage}{Acronym deprecated}}
+\newcommand{\acresetall}{\PackageWarning{examplepackage}{Acronym deprecated}}
+\newcommand{\acf}{\PackageWarning{examplepackage}{Acronym deprecated}}
+\newcommand{\acs}{\PackageWarning{examplepackage}{Acronym deprecated}}
+\newcommand{\acl}{\PackageWarning{examplepackage}{Acronym deprecated}}
+
+\newcommand{\acp}{\PackageWarning{examplepackage}{Acronym deprecated}}
+\newcommand{\acfp}{\PackageWarning{examplepackage}{Acronym deprecated}}
+\newcommand{\acsp}{\PackageWarning{examplepackage}{Acronym deprecated}}
+\newcommand{\aclp}{\PackageWarning{examplepackage}{Acronym deprecated}}
+\newcommand{\acfi}{\PackageWarning{examplepackage}{Acronym deprecated}}
+
+\newcommand{\iac}{\PackageWarning{examplepackage}{Acronym deprecated}}
+\newcommand{\Iac}{\PackageWarning{examplepackage}{Acronym deprecated}}
+\newcommand{\acused}{\PackageWarning{examplepackage}{Acronym deprecated}}
+\newcommand{\acsu}{\PackageWarning{examplepackage}{Acronym deprecated}}
+\newcommand{\aclu}{\PackageWarning{examplepackage}{Acronym deprecated}}

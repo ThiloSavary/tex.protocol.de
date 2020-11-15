@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Protokoll.cls
+#### Packages
+##### Added
+- glossaries
+- todonotes
+##### Changed
+- pgfplots <br> Added tikzlibrary shadow and external <br> Through external tikz files are excluded and stored in a subfolder named "*tikz*"
+##### Removed
+- acronym <br> Replaced with glossaries
+
 ## [v0.0.3-alpha] - 2020/10/02
 ### Protokoll.cls
 #### Packages
