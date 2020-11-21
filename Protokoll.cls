@@ -222,6 +222,30 @@
 \@ifpackageloaded{PhysicalConstants}{\relax}{
 	\usepackage{Packages/PhysicalConstants}
 }
+
+% Create a vertical neq https://tex.stackexchange.com/questions/108193/not-equal-sign-%E2%89%A0-with-a-vertical-bar
+\newcommand*{\vneq}{%
+  \mathrel{%
+    \mathpalette\@vneq{=}%
+  }%
+}
+\newcommand*{\@vneq}[2]{%
+  % #1: math style (\displaystyle, \textstyle, ...)
+  % #2: symbol (=, ...)
+  \sbox0{\raisebox{\depth}{$#1\neq$}}%
+  \sbox2{\raisebox{\depth}{$#1|\m@th$}}%
+  \ifdim\ht2>\ht0 %
+    \sbox2{\resizebox{\vneqxscale\width}{\vneqyscale\ht0}{\unhbox2}}%
+  \fi
+  \sbox2{$\m@th#1\vcenter{\copy2}$}%
+  \ooalign{%
+    \hfil\phantom{\copy2}\hfil\cr
+    \hfil$#1#2\m@th$\hfil\cr
+    \hfil\copy2\hfil\cr
+  }%
+}
+\newcommand*{\vneqxscale}{1}
+\newcommand*{\vneqyscale}{1}
 % ----------------------------------------------------
 
 % ----------------------------------------------------
