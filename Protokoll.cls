@@ -302,12 +302,20 @@
 
 
 \DeclareNewTOC[
-  type=Diagramm,                                                % Name der Umgebung
-  types=Diagramm,                                               % Erweiterung (\listofschemes)
+  type=diagram,                                                 % Name der Umgebung
+  types=diagrams,                                               % Erweiterung (\listofschemes)
   float,                                                        % soll gleiten
   name=Diagramm,                                                % Name in Überschriften
   listname={Verzeichnis der Diagramme},                         % Listenname
-]{Diagramm}
+]{diagram}
+
+\DeclareNewTOC[
+  type=reactionfig,                                                % Name der Umgebung
+  types=reactionfigs,                                               % Erweiterung (\listofschemes)
+  float,                                                        % soll gleiten
+  name=Reaktion,                                                % Name in Überschriften
+  listname={Verzeichnis der Reaktionen},                         % Listenname
+]{reactionfig}
 
 %\renewcommand{\theDiagramm}{\Alph{Diagramm}}                   % Setzt den Counter auf A, B, C
 
