@@ -329,6 +329,12 @@
 \creflabelformat{figure}{#2\textup{#1}#3}						% "
 \creflabelformat{Diagramm}{#2\textup{#1}#3}						% "
 \creflabelformat{table}{#2\textup{#1}#3}						% "
+
+\DeclareRobustCommand\citenum									% Entfernt das Leerzeichen vor citenum
+   {\begingroup
+%      \NAT@swatrue\let\NAT@ctype\z@\NAT@parfalse\let\textsuperscript\NAT@spacechar% DELETED
+     \NAT@swatrue\let\NAT@ctype\z@\NAT@parfalse\let\textsuperscript\relax% NEW
+     \NAT@citexnum[][]}
 % ----------------------------------------------------
 
 % ----------------------------------------------------
