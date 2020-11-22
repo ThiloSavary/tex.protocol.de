@@ -13,6 +13,23 @@ All notable changes to this project will be documented in this file.
 ##### Removed
 - acronym <br> Replaced with glossaries
 
+#### Commands
+##### Added
+- \\vneq <br> Creates an \neq (≠) but with an vertical bar
+##### Changed
+- \\citenum <br> (From *natbib*) <br> Removed leading space
+
+#### Enviroments
+##### Added
+- reactionfig <br> An floating reaction enviroment (not linked to the reaction enviroment from mhchem yet)
+##### Changed
+-  Renamed *~~Diagramm~~* to diagram <br> *float figure enviroment*; adds an additional figure enviroment for diagramms
+
+### Styles/HHU_Default.sty
+#### Changed Modification
+- Captionlayout <br> now left aligned
+
+
 ## [v0.0.3-alpha] - 2020/10/02
 ### Protokoll.cls
 #### Packages
