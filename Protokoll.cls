@@ -126,7 +126,7 @@
 \usetikzlibrary{decorations.pathmorphing}                       % Erweiterte Bibliothek für PFGPlot
 \usetikzlibrary{shadows}
 \usetikzlibrary{external}
-\tikzexternalize[prefix=tikz/] 
+\tikzexternalize[prefix=tikz/,only named] 
 
 \RequirePackage{float}                                          % Ermöglicht Floats um Objekte von Text um fließen zu lassen
 
@@ -150,6 +150,8 @@
   \edef\tikzscale{\pgfmathresult}%
   \BODY
 }
+
+\RequirePackage{background}
 % ----------------------------------------------------
 
 
