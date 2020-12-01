@@ -151,7 +151,7 @@
   \BODY
 }
 
-\RequirePackage{background}
+%\RequirePackage{background}
 % ----------------------------------------------------
 
 
@@ -183,6 +183,7 @@
 	
 \RequirePackage[version=4]{mhchem}                              % Chemiepacket --> großer Umfang
 
+\RequirePackage{upgreek}										% Gerade grichische Symbole
 \RequirePackage{chemmacros}                                     % Chemiepacket --> großer Umfang
 \chemsetup[chemformula]{}                                       % Verknüfpung mit anderen Packeten
 \chemsetup[ghsystem]{}                                          % GHS 
@@ -196,6 +197,7 @@
 \setchemfig{atom style={scale=1}}                               % Skalierung von Chemfig
 
 \RequirePackage{textgreek}                                      % Ermöglicht grichische Zeichen auch ohne Matheumgebung
+\chemsetup{greek=upgreek}										% Chemmacros soll upgreek nutzen
 
 \RequirePackage[]{listings}                                     % Ermöglicht schöne Darstellung von Programmiercodes
 
@@ -248,6 +250,8 @@
 }
 \newcommand*{\vneqxscale}{1}
 \newcommand*{\vneqyscale}{1}
+
+\usepackage{Packages/VibrationalModes}
 % ----------------------------------------------------
 
 % ----------------------------------------------------

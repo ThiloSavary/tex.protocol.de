@@ -121,6 +121,7 @@ xltabular | `Alpha: 0.0.3` | Ermöglicht Tabellen deren Breite definierbar ist u
 PhysicalConstants | `Alpha: 0.0.3` | **Eigenes Packet** Enthält Naturkonstanten
 glossaries | `Alpha: 0.0.4` | Stellt Abkürzungen und deren Verzeichnis zur Verfügung 
 todonotes | `Alpha: 0.0.4` | Erlaubt Notizen im erstellten Dokument
+PhysicalConstants | `Alpha: 0.0.4` | **Eigenes Packet** Erlaubt die schnelle Darstellung von Schwingungsarten
 
 ---
 #### Stile

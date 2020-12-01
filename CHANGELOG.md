@@ -8,6 +8,8 @@ All notable changes to this project will be documented in this file.
 ##### Added
 - glossaries
 - todonotes
+- upgreek
+- VibrationalModes
 ##### Changed
 - pgfplots <br> Added tikzlibrary shadow and external <br> Through external tikz files are excluded and stored in a subfolder named "*tikz*"
 ##### Removed
@@ -28,6 +30,17 @@ All notable changes to this project will be documented in this file.
 ### Styles/HHU_Default.sty
 #### Changed Modification
 - Captionlayout <br> now left aligned
+
+### VibrationalModes.sty
+Created Package for Vibrational Modes Display
+#### Commands
+##### Added
+- \SVib[index\<String\> (Default s)] <br>Prints the Symbol for streching oszillations with an index (s, as ...)
+- \SVib[index\<String\> (Default s)]{chem. Formula \<ceString\>} <br>Prints the Symbol for streching oszillations with an index (s, as ...) and the coresponding chemical Formula
+- \DVib[index\<String\> (Default s)] <br>Prints the Symbol for deformation oszillations with an index (s, as ...)
+- \DVib[index\<String\> (Default s)]{chem. Formula \<ceString\>} <br>Prints the Symbol for deformation oszillations with an index (s, as ...) and the coresponding chemical Formula
+- \Vib[vibType\<LaTeX\>][index\<String\> (Default s)] <br> Prints the Symbol for given vibType oszillations with an index (s, as ...)
+- \Vib[vibType\<LaTeX\>][index\<String\> (Default s)]{chem. Formula \<ceString\>} <br> Prints the Symbol for given vibType oszillations with an index (s, as ...) and the coresponding chemical Formula
 
 
 ## [v0.0.3-alpha] - 2020/10/02
@@ -50,6 +63,10 @@ All notable changes to this project will be documented in this file.
 
 ### PhysicalConstants.sty
 Created package for constants
+#### Commands
+##### Added
+- \PConst{ConstName\<String\>}<br>Prints the value of the Const (if known) with the SI Package
+- \faraday<br> Prints the value of the Faraday Constante with the SI Package
 
 
 
