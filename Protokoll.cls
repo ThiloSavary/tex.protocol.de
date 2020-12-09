@@ -112,6 +112,8 @@
 }
 
 \RequirePackage{multicol}
+
+\RequirePackage[super]{nth}										% Erlaubt englische Zählungen; 1st, 2nd
 % ----------------------------------------------------
 
 % ----------------------------------------------------
@@ -120,12 +122,14 @@
 
 \RequirePackage{wrapfig}                                        % Ermöglicht Floats um Bilder von Text um fließen zu lassen
 
+\RequirePackage{tikz,tikz-3dplot}
 \RequirePackage{pgfplots}                                       % Ermöglicht Darstellung von Plots aus externen/internen Dateien
 \pgfplotsset{compat=1.16}                                       % Version von PGFPlot
 \usetikzlibrary{intersections}                                  % Erweiterte Bibliothek für PFGPlot
 \usetikzlibrary{decorations.pathmorphing}                       % Erweiterte Bibliothek für PFGPlot
 \usetikzlibrary{shadows}
 \usetikzlibrary{external}
+\usetikzlibrary{calc, arrows, arrows.meta, positioning, decorations.pathreplacing, decorations.markings, decorations.text, calligraphy, pgfplots.dateplot}
 \tikzexternalize[prefix=tikz/,only named] 
 
 \RequirePackage{float}                                          % Ermöglicht Floats um Objekte von Text um fließen zu lassen
@@ -150,6 +154,11 @@
   \edef\tikzscale{\pgfmathresult}%
   \BODY
 }
+
+\RequirePackage{pdfpages}
+
+\RequirePackage{circledsteps}									% Erlaubt umkreiste Zahlen
+
 
 %\RequirePackage{background}
 % ----------------------------------------------------
@@ -277,6 +286,7 @@
 	pdfborder={0 0 0},                                        ]                                      
 	{hyperref}                                                  % Erlaubt Referenzierung und Anpassung dieser innerhalb des Dokumentes
 \urlstyle{same}													% Links übernehmen Schriftstil
+\RequirePackage{bookmark}
 
 \RequirePackage[nameinlink, noabbrev]{cleveref}                 % Erlaubt Referenzierungen --> Erkennt deutlich mehr Umgebungen 
 
@@ -473,10 +483,12 @@
 \newcommand{\@printAcro}{\relax}
 % ----------------------------------------------------
 % Bibliothek wird eingefügt
+%TODO Remove
 \newcommand{\makebibliography}[2]{
     \pagebreak
     \bibliographystyle{#1}
     \bibliography{#2}
+    \ClassWarning{Protokoll}{Command makebibliography is deprecated and will be removed in a future version. Please use the default way for including a bibliography.}
 }
 
 \DeclareOptionX{showframe}{\ifstrequal{#1}{true}
@@ -631,20 +643,20 @@
 \NewEnviron{acronym}{%
 	\PackageWarning{examplepackage}{Acronym deprecated}
 }
-\newcommand{\ac}{\PackageWarning{examplepackage}{Acronym deprecated}}
-\newcommand{\acresetall}{\PackageWarning{examplepackage}{Acronym deprecated}}
-\newcommand{\acf}{\PackageWarning{examplepackage}{Acronym deprecated}}
-\newcommand{\acs}{\PackageWarning{examplepackage}{Acronym deprecated}}
-\newcommand{\acl}{\PackageWarning{examplepackage}{Acronym deprecated}}
+\newcommand{\ac}{\ClassWarning{Protokoll}{Acronym deprecated}}
+\newcommand{\acresetall}{\ClassWarning{Protokoll}{Acronym deprecated}}
+\newcommand{\acf}{\ClassWarning{Protokoll}{Acronym deprecated}}
+\newcommand{\acs}{\ClassWarning{Protokoll}{Acronym deprecated}}
+\newcommand{\acl}{\ClassWarning{Protokoll}{Acronym deprecated}}
 
-\newcommand{\acp}{\PackageWarning{examplepackage}{Acronym deprecated}}
-\newcommand{\acfp}{\PackageWarning{examplepackage}{Acronym deprecated}}
-\newcommand{\acsp}{\PackageWarning{examplepackage}{Acronym deprecated}}
-\newcommand{\aclp}{\PackageWarning{examplepackage}{Acronym deprecated}}
-\newcommand{\acfi}{\PackageWarning{examplepackage}{Acronym deprecated}}
+\newcommand{\acp}{\ClassWarning{Protokoll}{Acronym deprecated}}
+\newcommand{\acfp}{\ClassWarning{Protokoll}{Acronym deprecated}}
+\newcommand{\acsp}{\ClassWarning{Protokoll}{Acronym deprecated}}
+\newcommand{\aclp}{\ClassWarning{Protokoll}{Acronym deprecated}}
+\newcommand{\acfi}{\ClassWarning{Protokoll}{Acronym deprecated}}
 
-\newcommand{\iac}{\PackageWarning{examplepackage}{Acronym deprecated}}
-\newcommand{\Iac}{\PackageWarning{examplepackage}{Acronym deprecated}}
-\newcommand{\acused}{\PackageWarning{examplepackage}{Acronym deprecated}}
-\newcommand{\acsu}{\PackageWarning{examplepackage}{Acronym deprecated}}
-\newcommand{\aclu}{\PackageWarning{examplepackage}{Acronym deprecated}}
+\newcommand{\iac}{\ClassWarning{Protokoll}{Acronym deprecated}}
+\newcommand{\Iac}{\ClassWarning{Protokoll}{Acronym deprecated}}
+\newcommand{\acused}{\ClassWarning{Protokoll}{Acronym deprecated}}
+\newcommand{\acsu}{\ClassWarning{Protokoll}{Acronym deprecated}}
+\newcommand{\aclu}{\ClassWarning{Protokoll}{Acronym deprecated}}
