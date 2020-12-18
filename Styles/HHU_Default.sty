@@ -27,6 +27,24 @@
 \newcommand{\group}[1]{\def\@group{#1}}
 \newcommand{\matriculation}[1]{\def\@matriculation{#1}}
 
+\newif\ifdesignihead
+\define@choicekey+{Styles/HHU_Default.sty}{ihead}{author, title, none, subtitle}{%
+	\def\design@ihead@display{\csname design@ihead@display@#1\endcsname}
+	\designiheadtrue
+}{\PackageError{Styles/HHU_Default.sty}{The 'ihead' option allows only the following values: 'default', 'title', 'subtitle' and 'none'}\relax}
+\ExecuteOptionsX{ihead=title}
+
+\newif\ifdesignohead
+\define@choicekey+{Styles/HHU_Default.sty}{ohead}{author, title, none, subtitle}{%
+	\def\design@ohead@display{\csname design@ohead@display@#1\endcsname}
+	\designoheadtrue
+}{\PackageError{Styles/HHU_Default.sty}{The 'ohead' option allows only the following values: 'default', 'title', 'subtitle' and 'none'}\relax}
+\ExecuteOptionsX{ohead=author}
+
+\newcommand{\DesignOptions}[1]{
+	\setkeys{Styles/HHU_Default.sty}{#1}
+}
+
 \geometry{
     a4paper,                                                    % DIN A4
     left=2.5cm,                                                 % Abstand Dokumentrand und Textbereich links
@@ -50,10 +68,20 @@
 \KOMAoptions{
     headsepline,                                                % Linie unter Header
     toc=sectionentrywithdots                                    % Punkte im Inhaltsverzeichnis
-}                                        
+}
+
+\providecommand\design@ohead@display@title{\@title}
+\providecommand\design@ohead@display@subtitle{\@subtitle}                              
+\providecommand\design@ohead@display@author{\@author}                              
+\providecommand\design@ohead@display@none{\relax}                              
+
+\providecommand\design@ihead@display@title{\@title}
+\providecommand\design@ihead@display@subtitle{\@subtitle}                              
+\providecommand\design@ihead@display@author{\@author}                              
+\providecommand\design@ihead@display@none{\relax}                              
     
-\ihead{\@subtitle}                                            	% definiert inneren Head (einseitig: links)
-\ohead{\@author}                                                % definiert äußeren Head (einseitig: rechts)
+\ihead{\design@ihead@display}                                            	% definiert inneren Head (einseitig: links)
+\ohead{\design@ohead@display}                                                % definiert äußeren Head (einseitig: rechts)
 \pagenumbering{Roman}                                           % Seitenzahl erst auf Römisch
 \ofoot{\pagemark}												% definiert äußeren Fuß (einsetig: rechts)
 
