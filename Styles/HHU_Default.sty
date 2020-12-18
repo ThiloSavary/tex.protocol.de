@@ -123,21 +123,22 @@
 
 
 % Befehl zur Darstellung der Titelseite
-\ifbool{titlepage}{
+\ifclstitlepage
     \renewcommand{\maketitle}{
         \begin{titlepage}
         \setcounter{page}{0}
         
         \begin{center}
-            \includegraphics[scale = 0.3, trim = 0mm 25mm 0mm 38mm, clip]{pic/Logo_HHU_+Name_vertikal_rgb_+Safezone.eps}\\
+        \includegraphics[scale = 0.3, trim = 0mm 25mm 0mm 38mm, clip]{pic/Logo_HHU_+Name_vertikal_rgb_+Safezone.eps}\\
             \vspace*{5mm}
             \Large\textbf{\@institute}\\
             \vfill
             \vspace*{-50mm}
-            \line(1,0){450}\\[1mm]
+            \line(1,0){450}
+            \vspace*{-10mm}
             \huge{\textbf{\@title}}\\[3mm]
-            \Large{\textbf{\@subtitle}}\\[1mm]
-            \line(1,0){450}\\
+            \Large{\textbf{\@subtitle}}\\[3mm]
+            \line(1,0){450}
             \vfill
             \small{\@author 
             \def\temp{}
@@ -170,8 +171,7 @@
         \end{center}
         \end{titlepage}    
     }
-}{}
-
+\fi
 % Fügt Seite nach Inhaltsverzeichnis ein
 \renewcommand{\tableofcontents}{
     \maketableofcontents						% wurde oben gespeichert
