@@ -289,7 +289,7 @@
 	{hyperref}                                                  % Erlaubt Referenzierung und Anpassung dieser innerhalb des Dokumentes
 \urlstyle{same}													% Links übernehmen Schriftstil
 \RequirePackage{bookmark}
-\RequirePackage[nameinlink, noabbrev]{cleveref}                 % Erlaubt Referenzierungen --> Erkennt deutlich mehr Umgebungen 
+\RequirePackage[nameinlink, noabbrev, ngerman]{cleveref}                 % Erlaubt Referenzierungen --> Erkennt deutlich mehr Umgebungen 
 \RequirePackage[all]{hypcap}                                    % Korrigiert Anker zu Floats
 \RequirePackage{imakeidx}                                       % Ermöglicht Index
 \makeindex                                                      % Nötig um Index zu erstellen
@@ -601,10 +601,12 @@
 \AtEndDocument{%
 	\ifclslistoffigures
 		 \clearpage
+		 \cls@listoffigures@settings
 		 \listoffigures 
 	\fi
 	\ifclslistoftables
 		\clearpage
+		\cls@listoftables@settings
 		\listoftables
 	\fi
 	\ifclsacro
