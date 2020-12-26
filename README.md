@@ -16,6 +16,20 @@ Darüber hinaus stellt das Paket eine große Zahl an nützlichen Befehlen zur Ve
 
 ---
 
+Die Kompilierung erfolgt über *pdflatex*. Die Folge für eine komplette Kompilierung sieht wie folgt aus. Man beachte den Zusatz `--shell-escape` der durch die tikzlibary *external* benötigt wird.: <br>
+`pdflatex -synctex=1 -interaction=nonstopmode --shell-escape %.tex` <br>
+`pdflatex -synctex=1 -interaction=nonstopmode --shell-escape %.tex` <br>
+`makeindex %.idx` <br>
+`makeglossaries %` <br>
+`bibtex %`<br>
+`pdflatex -synctex=1 -interaction=nonstopmode --shell-escape %.tex` <br>
+
+`makeindex` wird für das Packet *imakeidx* benötigt. <br>
+`makeglossaries` wird für das Packet *glossaries* benötigt. <br>
+Für `makeglossaries` muss <a href="https://www.activestate.com/activeperl/downloads">ActivePerl</a> installiert sein. Nach der Installation muss perltex einmal ausgeführt werden: `perltex`
+
+---
+
 #### Installation
 
 Um dieses Paket zu nutzen, muss es einfach runtergeladen werden. Im Verzeichnis kann dann eine LaTeX Datei angelegt werden, welche die Klasse und optional die Stile importiert.
@@ -23,6 +37,8 @@ Um dieses Paket zu nutzen, muss es einfach runtergeladen werden. Im Verzeichnis 
 `\documentclass[]{Protokoll}`
 
 `\usepackage{Styles/HHU_Default}`
+
+#### 
 
 ---
 #### Pakete
@@ -86,7 +102,7 @@ cleveref | `Alpha: 0.0.1` | Verbessert Referenzierung
 hypcap | `Alpha: 1.00` | Korrigiert Anker zu Floats
 imakeidx | `Alpha: 0.0.1` | Ermöglicht Index
 tablefootnote | `Alpha: 0.0.1` | Ermöglicht footnotes aus Table Floats
-acronym | `Alpha: 0.0.1` | Stellt Abkürzungen und deren Verzeichnis zur Verfügung
+acronym | `Alpha: 0.0.1` <br> ~~`Alpha: 0.0.4`~~| Stellt Abkürzungen und deren Verzeichnis zur Verfügung <br> Seit `Alpha: 0.0.4` deprecated
 lastpage | `Alpha: 0.0.1` | Hook zur letzen Seite
 tabularx | `Alpha: 0.0.1` | Tabellen deren Breite definierbar ist
 tabu | `Alpha: 0.0.1` | Vielseitiges Tabellenpaket
@@ -103,6 +119,9 @@ helvet | `Alpha: 0.0.1` `HHU_Default` | Lädt die Schriftart Helvet
 setspace | `Alpha: 0.0.1` `HHU_Default` | Ermöglicht die Beeinflussung vom Zeilenabstand
 xltabular | `Alpha: 0.0.3` | Ermöglicht Tabellen deren Breite definierbar ist und die über mehrere Seiten gehen können
 PhysicalConstants | `Alpha: 0.0.3` | **Eigenes Packet** Enthält Naturkonstanten
+glossaries | `Alpha: 0.0.4` | Stellt Abkürzungen und deren Verzeichnis zur Verfügung 
+todonotes | `Alpha: 0.0.4` | Erlaubt Notizen im erstellten Dokument
+PhysicalConstants | `Alpha: 0.0.4` | **Eigenes Packet** Erlaubt die schnelle Darstellung von Schwingungsarten
 
 ---
 #### Stile

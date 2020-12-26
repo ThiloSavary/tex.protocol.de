@@ -14,22 +14,21 @@
 	\PackageWarning{PhysicalConstants}{Command 'PConst' already exists.}{}
 }{
 	\newcommand{\PConst}[2][]{
-		\togglefalse{PConstKnown}
-		\ifstrequal{#2}{faraday}{
-			\SI[#1]{96485,332}{\ampere\second\per\mol}
-			\toggletrue{PConstKnown}
-		}
-		
-		\nottoggle{PConstKnown}{\PackageError{PhysicalConstants}{Physical Constant '#2' unknown. }{}}
+		\def\constant@print{\csname constant@print@#2\endcsname}
+		\ifcsname constant@print@#2\endcsname%
+			\constant@print[#1]	
+		\else
+			\PackageError{PhysicalConstants}{Physical Constant '#2' unknown. }{}
+		\fi
 	}
+	\newcommand{\providePConst}[3]{
+		\ifcsname constant@print@#1\endcsname%
+			\PackageError{PhysicalConstants}{Physical Constant '#1' already definded. }{}
+		\else
+			\expandafter\newcommand\expandafter{\csname constant@print@#1\endcsname}[1][]{\SI[##1]{#2}{#3}}
+		\fi
+	}
+	
+	\newcommand{\constant@print@faraday}[1][]{\SI[#1]{96485,332}{\ampere\second\per\mol}}
 }
 
-
-
-\ifcsdef{faraday}{
-	\PackageWarning{PhysicalConstants}{Command 'faraday' already exists.}{}
-}{
-	\newcommand{\faraday}[1][]{
-		\SI[#1]{96485,332}{\ampere\second\per\mol}
-	}
-}

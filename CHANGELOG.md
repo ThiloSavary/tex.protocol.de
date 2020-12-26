@@ -3,6 +3,87 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Protokoll.cls
+#### Packages
+##### Added
+- glossaries
+- todonotes
+- upgreek
+- VibrationalModes
+- bookmark
+- circledsteps
+- pdfpages
+- tikz-3dplot
+##### Changed
+- pgfplots <br> Added tikzlibraries *shadow*, *external*, *calc*, *arrows*, *arrows.meta*, *positioning*, *decorations.pathreplacing*, *decorations.markings*, *decorations.text*, *calligraphy* and *pgfplots.dateplot* <br> Through external tikz files are excluded and stored in a subfolder named "*tikz*" <br>This only applies for named tikz images (by \\tikzsetnextfilename{})
+##### Removed
+- acronym <br> Replaced with glossaries
+
+#### Commands
+##### Added
+- \\vneq <br> Creates an \neq (≠) but with an vertical bar
+##### Changed
+- \\citenum <br> (From *natbib*) <br> Removed leading space
+##### Removed
+- \\makebibliography <br> Is now deprecated, will be removed next release <br> It is adviced to use the default commands: <br>
+    *\pagebreak
+    \bibliographystyle{#1}
+    \bibliography{#2}*
+
+#### Enviroments
+##### Added
+- reactionfig <br> An floating reaction enviroment (not linked to the reaction enviroment from mhchem yet)
+##### Changed
+-  Renamed *~~Diagramm~~* to diagram <br> *float figure enviroment*; adds an additional figure enviroment for diagramms
+
+#### Options
+Reworked the whole Option processing workflow, through this option names and allowed values will be **different** from now on:
+##### Changed
+- titlepage <br> Default: **default** <br> Allowed values: *default* <br> Creates an titlepage if given, if not, there will be no titlepage
+- tableofcontent <br> Default: **default** <br> Allowed values: *default* <br> Creates an tableofcontent if given, if not, there will be no tableofcontent
+- listoffigures <br> Default: **default** <br> Allowed values: *default* <br> Creates an listoffigures if given, if not, there will be no listoffigures
+- listoftables <br> Default: **default** <br> Allowed values: *default* <br> Creates an listoftables if given, if not, there will be no listoftables
+- acro <br> Default: **default** <br> Allowed values: *default*, *list* <br> Aktivates the acronym package and if the Option *list* is chosen, creates an listofacronyms
+- reset-acro= <br> **No Default** <br> Allowed values: *section* <br> Resets acronyms every \<value> 
+- reset-label= <br> **No Default** <br> Allowed values: *section* <br> Floating captions will include the current \<value> number, so an caption looks like this: "Fig. 3.1: *Caption*". The second counter will be reset every \<value>.
+- backref <br> Default: **true** <br> Allowed values: *\<boolean>* <br> Aktivates the backref package
+- showframe <br> Default: **true** <br> Allowed values: *\<boolean>* <br> Aktivates the showframe package
+- hyphenation <br> Default: **true** <br> Allowed values: *\<boolean>* <br> Controlles hyphenation
+- design <br> Default: **default** <br> Allowed values: *default*, *hhu* <br> Loads predefined Designs
+
+### Styles/HHU_Default.sty
+#### Options
+Package Options are now possible, they can be set by \\usepackage[\<Options>] or with the new provided Command \\DesignOptions{Options}
+##### Added
+  - ihead <br> Default: **title** <br> Allowed values: *author*, *title*, *none*, *subtitle* <br> Sets the ihead Heading
+  - design <br> Default: **author** <br> Allowed values: *author*, *title*, *none*, *subtitle* <br> Sets the ohead Heading
+#### Commands
+##### Added
+- \\DesignOptions{Options\<keyValString>}<br>
+Set Package Options for the loaded Style
+#### Modification
+##### Changed
+- Captionlayout <br> now left aligned
+
+### PhysicalConstants.sty
+#### Commands
+#### Added
+- providePConst{name\<String>}{value\<number>}{unit\<SI-package-String>} <br> Allowes to create own Constants
+##### Removed
+- ~~\faraday~~
+
+### VibrationalModes.sty
+Created Package for Vibrational Modes Display
+#### Commands
+##### Added
+- \SVib[index\<String\> (Default s)] <br>Prints the Symbol for streching oszillations with an index (s, as ...)
+- \SVib[index\<String\> (Default s)]{chem. Formula \<ceString\>} <br>Prints the Symbol for streching oszillations with an index (s, as ...) and the coresponding chemical Formula
+- \DVib[index\<String\> (Default s)] <br>Prints the Symbol for deformation oszillations with an index (s, as ...)
+- \DVib[index\<String\> (Default s)]{chem. Formula \<ceString\>} <br>Prints the Symbol for deformation oszillations with an index (s, as ...) and the coresponding chemical Formula
+- \Vib[vibType\<LaTeX\>][index\<String\> (Default s)] <br> Prints the Symbol for given vibType oszillations with an index (s, as ...)
+- \Vib[vibType\<LaTeX\>][index\<String\> (Default s)]{chem. Formula \<ceString\>} <br> Prints the Symbol for given vibType oszillations with an index (s, as ...) and the coresponding chemical Formula
+
+
 ## [v0.0.3-alpha] - 2020/10/02
 ### Protokoll.cls
 #### Packages
@@ -23,6 +104,10 @@ All notable changes to this project will be documented in this file.
 
 ### PhysicalConstants.sty
 Created package for constants
+#### Commands
+##### Added
+- \PConst{ConstName\<String\>}<br>Prints the value of the Const (if known) with the SI Package
+- \faraday<br> Prints the value of the Faraday Constante with the SI Package
 
 
 
