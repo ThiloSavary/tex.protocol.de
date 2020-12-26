@@ -1,0 +1,76 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{Packages/VibrationalModes}[2020/00/03]
+
+\@ifpackageloaded{chemmacros}{\relax}{
+	\PackageError{VibrationalModes}{Package 'chemmacros' not loaded. }{}
+}
+\@ifpackageloaded{upgreek}{\relax}{
+	\PackageError{VibrationalModes}{Package 'upgreek' not loaded. }{}
+}
+
+
+\ifcsname SVib\endcsname%
+	\PackageWarning{VibrationalModes}{Command 'SVib' already exists.}{}
+\else%
+	\def\SVib{%
+   		\@ifnextchar[%
+     		{\SVib@i}
+     		{\SVib@i[s]}%
+	}
+	\def\SVib@i[#1]{%
+   		\@ifnextchar\bgroup%
+     		{\SVib@ii{#1}}
+     		{$\upnu_\text{#1}$}%
+	}
+
+	\def\SVib@ii#1#2{%
+  		$\upnu_\text{#1}(\ch{#2})$
+	}
+\fi%
+
+\ifcsname DVib\endcsname%
+	\PackageWarning{VibrationalModes}{Command 'DVib' already exists.}{}
+\else%
+	\def\DVib{%
+   		\@ifnextchar[%
+     		{\DVib@i}
+     		{\DVib@i[s]}%
+	}
+	
+	\def\DVib@i[#1]{%
+   		\@ifnextchar\bgroup%
+     		{\DVib@ii{#1}}
+     		{$\updelta_\text{#1}$}%
+	}
+
+	\def\DVib@ii#1#2{%
+ 		 $\updelta_\text{#1}(\ch{#2})$
+	}
+\fi%
+
+
+\ifcsname Vib\endcsname%
+	\PackageWarning{VibrationalModes}{Command 'Vib' already exists.}{}
+\else%
+	\def\Vib{%
+   		\@ifnextchar[%
+     		{\Vib@i}
+     		{\relax\PackageError{VibrationalModes}{Command 'Vib' needs more arguments}{}}%
+	}
+	
+	\def\Vib@i[#1]{%
+   		\@ifnextchar[%
+     		{\Vib@ii{#1}}
+     		{\Vib@ii{#1}[s]}%
+	}
+
+	\def\Vib@ii#1[#2]{%
+ 		\@ifnextchar\bgroup%
+     		{\Vib@iii{#1}{#2}}
+     		{$#1_\text{#2}$}%
+	}
+
+	\def\Vib@iii#1#2#3{%
+		$#1_\text{#2}(\ch{#3})$
+	}
+\fi%
