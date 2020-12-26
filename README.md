@@ -1,5 +1,5 @@
 # LaTeX Klasse: Protokoll
-![Version 0.0.3 Badge][version-badge]
+![Version 0.0.4 Badge][version-badge]
 
 [Changelog](CHANGELOG.md)
 
@@ -99,10 +99,10 @@ babelbib | `Alpha: 0.0.1` | Stellt Packete für Deutsches Literaturverzeichnis z
 url | `Alpha: 0.0.1` | Ermöglicht Links
 hyperref | `Alpha: 0.0.1` | Erlaubt Referenzierung und Anpassung dieser innerhalb des Dokumentes. Metadaten des Dokuments können angepasst werden.
 cleveref | `Alpha: 0.0.1` | Verbessert Referenzierung
-hypcap | `Alpha: 1.00` | Korrigiert Anker zu Floats
+hypcap | `Alpha: 0.0.1` | Korrigiert Anker zu Floats
 imakeidx | `Alpha: 0.0.1` | Ermöglicht Index
 tablefootnote | `Alpha: 0.0.1` | Ermöglicht footnotes aus Table Floats
-acronym | `Alpha: 0.0.1` <br> ~~`Alpha: 0.0.4`~~| Stellt Abkürzungen und deren Verzeichnis zur Verfügung <br> Seit `Alpha: 0.0.4` deprecated
+acronym | `Alpha: 0.0.1` <br> ~~`Alpha: 0.1.0`~~| Stellt Abkürzungen und deren Verzeichnis zur Verfügung <br> Seit `Alpha: 0.0.4` deprecated
 lastpage | `Alpha: 0.0.1` | Hook zur letzen Seite
 tabularx | `Alpha: 0.0.1` | Tabellen deren Breite definierbar ist
 tabu | `Alpha: 0.0.1` | Vielseitiges Tabellenpaket
@@ -119,9 +119,14 @@ helvet | `Alpha: 0.0.1` `HHU_Default` | Lädt die Schriftart Helvet
 setspace | `Alpha: 0.0.1` `HHU_Default` | Ermöglicht die Beeinflussung vom Zeilenabstand
 xltabular | `Alpha: 0.0.3` | Ermöglicht Tabellen deren Breite definierbar ist und die über mehrere Seiten gehen können
 PhysicalConstants | `Alpha: 0.0.3` | **Eigenes Packet** Enthält Naturkonstanten
-glossaries | `Alpha: 0.0.4` | Stellt Abkürzungen und deren Verzeichnis zur Verfügung 
-todonotes | `Alpha: 0.0.4` | Erlaubt Notizen im erstellten Dokument
-PhysicalConstants | `Alpha: 0.0.4` | **Eigenes Packet** Erlaubt die schnelle Darstellung von Schwingungsarten
+glossaries | `Alpha: 0.1.0` | Stellt Abkürzungen und deren Verzeichnis zur Verfügung 
+todonotes | `Alpha: 0.1.0` | Erlaubt Notizen im erstellten Dokument
+PhysicalConstants | `Alpha: 0.1.0` | **Eigenes Packet** Erlaubt die schnelle Darstellung von Schwingungsarten
+upgreek | `Alpha: 0.1.0` | Ermöglicht grichische Zeichen auch ohne Matheumgebung
+bookmark | `Alpha: 0.1.0` | Erweitert bookmarks von Hyperref
+circledsteps | `Alpha: 0.1.0` | Erlaubt Kreise um Zahlen
+pdfpages | `Alpha: 0.1.0` | Erlaubt präzise Importierung von PDF Datein
+tikz-3dplot | `Alpha: 0.1.0` | 3D Plots
 
 ---
 #### Stile
@@ -131,4 +136,4 @@ Stil | <nobr>Seit Version</nobr> | Nutzen
 HHU_Default | `Alpha: 0.0.1` | Protokoll für die Heinrich-Heine-Universität
 
 
-[version-badge]: https://img.shields.io/badge/version-Alpha_0.0.3-blue.svg
+[version-badge]: https://img.shields.io/badge/version-Alpha_0.0.4-blue.svg
