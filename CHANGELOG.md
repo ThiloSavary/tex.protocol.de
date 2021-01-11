@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [v0.1.0-alpha] - 2020/12/26
 
 ### Protokoll.cls
 #### Packages
@@ -443,3 +443,4 @@ at the end of the entries
 [v0.0.1-alpha]: https://github.com/ThiloSavary/tex.protocol.de/releases/tag/v0.0.1-alpha
 [v0.0.2-alpha]: https://github.com/ThiloSavary/tex.protocol.de/compare/v0.0.2-alpha...v0.0.1-alpha
 [v0.0.3-alpha]: https://github.com/ThiloSavary/tex.protocol.de/compare/v0.0.3-alpha...v0.0.2-alpha
+[v0.1.0-alpha]: https://github.com/ThiloSavary/tex.protocol.de/compare/v0.1.0-alpha...v0.0.3-alpha
