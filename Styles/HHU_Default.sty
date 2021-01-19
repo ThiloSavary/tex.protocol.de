@@ -55,15 +55,15 @@
 	\def\design@ihead@display{\csname design@ihead@display@#1\endcsname}
 	\designiheadtrue
 }{\PackageError{Styles/HHU_Default.sty}{The 'ihead' option allows only the following values: 'default', 'title', 'subtitle' and 'none'}\relax}
-\ExecuteOptionsX{ihead=title}
+\ExecuteOptionsX<Styles/HHU_Default.sty>{ihead=title}
 
 \newif\ifdesignohead
 \define@choicekey+{Styles/HHU_Default.sty}{ohead}{author, title, none, subtitle}{%
 	\def\design@ohead@display{\csname design@ohead@display@#1\endcsname}
 	\designoheadtrue
 }{\PackageError{Styles/HHU_Default.sty}{The 'ohead' option allows only the following values: 'default', 'title', 'subtitle' and 'none'}\relax}
-\ExecuteOptionsX{ohead=author}
-
+\ExecuteOptionsX<Styles/HHU_Default.sty>{ohead=author}
+\ProcessOptionsX<Styles/HHU_Default.sty>\relax
 \newcommand{\DesignOptions}[1]{
 	\setkeys{Styles/HHU_Default.sty}{#1}
 }
@@ -223,12 +223,13 @@
     }
 \fi
 % Fügt Seite nach Inhaltsverzeichnis ein
-\renewcommand{\tableofcontents}{
+\renewcommand{\printtableofcontents}{
     \maketableofcontents						% wurde oben gespeichert
     \cleardoubleoddpage
 }
 
-\AtBeginDocument{
+
+\AfterEndPreamble{
     \pagenumbering{arabic}                      % Seitenzahl nach Inhaltsverzeichnis auf Arabic
     \ofoot{\pagemark}  
 }

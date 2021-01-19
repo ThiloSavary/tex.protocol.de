@@ -300,7 +300,7 @@
     ]
 {natbib}                                                    	% Erzeugt Literaturverzeichnis aus bib Datei
 \RequirePackage[fixlanguage]{babelbib}                          % Stellt Packete für Deutsches Literaturverzeichnis zur Verfügung
-\selectbiblanguage{ngerman}                                     
+%\selectbiblanguage{ngerman}                                     
 \RequirePackage[
     hyphens                                                     % Bindestriche werden miteinbezogen !ACHTUNG!
     ]
@@ -509,6 +509,8 @@
 \newcommand{\@printAbstract}{\@abstractcontent}
 \newcommand{\@printAcro}{\relax}
 
+\newcommand{\printtableofcontents}{\tableofcontents}
+
 
 % Hypentation Enviroments
 \NewEnviron{preventHyphenation}{
@@ -607,7 +609,7 @@
 \fi
 	
 	
-\AtBeginDocument{%
+\AfterEndPreamble{%
 	%\sisetup{detect-all}
 	\ifclstitlepage
 		\cls@titlepage@settings
@@ -616,7 +618,7 @@
 	\@printAbstract
 	\ifclstableofcontent
 		\cls@tableofcontent@settings
-		\tableofcontents														
+		\printtableofcontents													
 	\fi
 	\setcounter{page}{1}
 }

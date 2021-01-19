@@ -20,15 +20,17 @@
 % OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 % SOFTWARE.
 
-\documentclass[tableofcontent=false]{Protokoll}
+\documentclass[tableofcontent, titlepage=default]{Protokoll}
 
-%\usepackage{Styles/HHU_Default}
+\usepackage[ihead=author]{Styles/HHU_Default}
 \title{Title}
 \author{Author}
 \date{Date}
+\authormail{\href{mailto:test@test.com}{test@test.com}}
 
 \begin{document}
 	Hey
+	\section{Test}
 	
 	\pagebreak
     	\bibliographystyle{ChemEurJ}
