@@ -3,7 +3,7 @@
 
 [Changelog](CHANGELOG.md)
 
-[Dokumentation](ThiloSavary/tex.protocol.de/blob/documentation/Dokumentation_Klasse_Protokoll.pdf)
+[Dokumentation](tex.protocol.de/blob/documentation/Dokumentation_Klasse_Protokoll.pdf)
 
 ---
 
