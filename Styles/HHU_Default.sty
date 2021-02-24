@@ -57,6 +57,11 @@
 }{\PackageError{Styles/HHU_Default.sty}{The 'ihead' option allows only the following values: 'default', 'title', 'subtitle' and 'none'}\relax}
 \ExecuteOptionsX<Styles/HHU_Default.sty>{ihead=title}
 
+\define@choicekey+{Styles/HHU_Default.sty}{titlepage}{default, fancy, simple}{%
+	\def\design@titlepage@display{\csname design@titlepage@display@#1\endcsname}
+}{\PackageError{Styles/HHU_Default.sty}{The 'titlepage' option allows only the following values: 'default', 'simple' and 'fancy'}\relax}
+\ExecuteOptionsX<Styles/HHU_Default.sty>{titlepage=default}
+
 \newif\ifdesignohead
 \define@choicekey+{Styles/HHU_Default.sty}{ohead}{author, title, none, subtitle}{%
 	\def\design@ohead@display{\csname design@ohead@display@#1\endcsname}
@@ -108,6 +113,87 @@
 \pagenumbering{Roman}                                           % Seitenzahl erst auf Römisch
 \ofoot{\pagemark}												% definiert äußeren Fuß (einsetig: rechts)
 
+\providecommand\design@titlepage@display@simple{\relax} 
+\providecommand\design@titlepage@display@default{
+\renewcommand{\maketitle}{
+        \begin{titlepage}
+        \setcounter{page}{0}
+        
+        \begin{center}
+        \includegraphics[scale = 0.3, trim = 0mm 25mm 0mm 38mm, clip]{pic/Logo_HHU_+Name_vertikal_rgb_+Safezone.eps}\\
+            \vspace*{5mm}
+            \Large\textbf{\@institute}\\
+            \vfill
+            \vspace*{-50mm}
+            \line(1,0){450}
+            \huge{\textbf{\@title}}\\[3mm]
+            \Large{\textbf{\@subtitle}}\\[3mm]
+            \line(1,0){450}
+            \vfill
+            \small{\@author 
+            \def\temp{}
+            \ifx\temp\@author
+                \relax
+            \else
+                \\
+            \fi
+            \@matriculation
+            \ifx\temp\@matriculation
+                \relax
+            \else
+                \\
+            \fi
+            \@authormail 
+            \def\temp{}
+            \ifx\temp\@authormail
+                \relax
+            \else
+                \\
+            \fi
+            \@group 
+            \def\temp{}
+            \ifx\temp\@group
+                \relax
+            \else
+                \\
+            \fi
+            \@date}
+        \end{center}
+        \end{titlepage}    
+    }
+} 
+\providecommand\design@titlepage@display@fancy{
+	\renewcommand{\maketitle}{
+        \begin{titlepage}
+        \setcounter{page}{0}
+		\begin{tikzpicture}[remember picture,overlay]
+
+			\fill[BlueViolet] (current page.south west) rectangle (current page.north east);
+			\begin{scope}
+				\foreach \i in {2.5,...,22}
+				{\node[rounded corners,BlueViolet!90,draw,regular polygon,regular polygon sides=6, minimum size=\i  cm,ultra thick] at ($(current page.west)+(2.5,-5)$) {};}
+			\end{scope}
+
+			\node[rounded corners,fill=BlueViolet!95,text =BlueViolet!5,regular polygon,regular polygon sides=6, minimum size=2.5 cm,inner sep=0,ultra thick] at ($(current page.west)+(2.5,-5)$) {\large \bfseries \@date};
+
+			\foreach \i in {0.5,...,22}
+			{\node[rounded corners,BlueViolet!90,draw,regular polygon,regular polygon sides=6, minimum size=\i  cm,ultra thick] at ($(current page.north west)+(2.5,0)$) {} ;}
+			
+				\foreach \i in {0.5,...,22}
+				{\node[rounded corners,BlueViolet!98,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.north east)+(0,-9.5)$) {} ;}
+
+				\node[anchor=west] at ($(current page.west)+(12.5,-10)$) {\includegraphics[scale = 0.3, trim = 0mm 0mm 0mm 0mm, clip]{pic/Logo_HHU_+Name_vertikal_rgb_+Safezone_White.eps}};
+
+				\node[left,BlueViolet!5,minimum width=0.625*\paperwidth,minimum height=3cm, rounded corners] at ($(current page.north east)+(0,-9.5)$){{\fontsize{25}{30} \selectfont \bfseries \@title}};
+
+				\node[left,BlueViolet!10,minimum width=0.625*\paperwidth,minimum height=2cm, rounded corners] at ($(current page.north east)+(0,-11)$){{\huge \textit{\@subtitle}}};
+
+				\node[left,BlueViolet!5,minimum width=0.625*\paperwidth,minimum height=2cm, rounded corners] at ($(current page.north east)+(0,-13)$){{\Large \textsc{\@author}}};
+
+			\end{tikzpicture}
+        \end{titlepage}    
+    }
+} 
 
 \setlist[enumChar]{
     label=\Alph*., 
@@ -175,52 +261,7 @@
 
 % Befehl zur Darstellung der Titelseite
 \ifclstitlepage
-    \renewcommand{\maketitle}{
-        \begin{titlepage}
-        \setcounter{page}{0}
-        
-        \begin{center}
-        \includegraphics[scale = 0.3, trim = 0mm 25mm 0mm 38mm, clip]{pic/Logo_HHU_+Name_vertikal_rgb_+Safezone.eps}\\
-            \vspace*{5mm}
-            \Large\textbf{\@institute}\\
-            \vfill
-            \vspace*{-50mm}
-            \line(1,0){450}
-            \huge{\textbf{\@title}}\\[3mm]
-            \Large{\textbf{\@subtitle}}\\[3mm]
-            \line(1,0){450}
-            \vfill
-            \small{\@author 
-            \def\temp{}
-            \ifx\temp\@author
-                \relax
-            \else
-                \\
-            \fi
-            \@matriculation
-            \ifx\temp\@matriculation
-                \relax
-            \else
-                \\
-            \fi
-            \@authormail 
-            \def\temp{}
-            \ifx\temp\@authormail
-                \relax
-            \else
-                \\
-            \fi
-            \@group 
-            \def\temp{}
-            \ifx\temp\@group
-                \relax
-            \else
-                \\
-            \fi
-            \@date}
-        \end{center}
-        \end{titlepage}    
-    }
+	\renewcommand{\cls@titlepage@settings}{\design@titlepage@display}
 \fi
 % Fügt Seite nach Inhaltsverzeichnis ein
 \renewcommand{\printtableofcontents}{

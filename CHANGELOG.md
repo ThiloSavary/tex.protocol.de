@@ -1,6 +1,20 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+### Protokoll.cls
+- Made titlepage option boolean, style of titlepage can be changed by the selected style class
+- Added the *dvipsnames* options to *xcolor*
+### Styles/HHU_Default.sty
+- Fixed titlepage spacing
+- Fixed hyperref and options bug (caused due wrong hook order)
+- Added titlepage layout options
+  - added Default (the previous one)
+  - addded Simple (no changed to KOMA)
+  - added Fancy
+
+
+
 ## [v0.1.0-alpha] - 2020/12/26
 
 ### Protokoll.cls
@@ -439,7 +453,7 @@ at the end of the entries
 
 
 <!--[Unreleased]: https://github.com/ThiloSavary/tex.protocol.de/-->
-[Unreleased]: https://github.com/ThiloSavary/tex.protocol.de/compare/v0.0.3-alpha...HEAD
+[Unreleased]: https://github.com/ThiloSavary/tex.protocol.de/compare/v0.1.0-alpha...HEAD
 [v0.0.1-alpha]: https://github.com/ThiloSavary/tex.protocol.de/releases/tag/v0.0.1-alpha
 [v0.0.2-alpha]: https://github.com/ThiloSavary/tex.protocol.de/compare/v0.0.2-alpha...v0.0.1-alpha
 [v0.0.3-alpha]: https://github.com/ThiloSavary/tex.protocol.de/compare/v0.0.3-alpha...v0.0.2-alpha

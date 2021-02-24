@@ -41,11 +41,7 @@
 % 				Class Options
 % ----------------------------------------------------
 
-\newif\ifclstitlepage
-\define@choicekey+{Protokoll.cls}{titlepage}{default}[default]{%
-	\def\cls@titlepage@settings{\csname cls@titlepage@settings@#1\endcsname}
-	\clstitlepagetrue
-}{\PackageError{Protokoll.cls}{The 'titlepage' option allows only the following values: 'default'}\relax}
+\define@boolkey+{Protokoll.cls}[cls]{titlepage}[true]{\relax}{\PackageError{informatics.cls}{The 'titlepage' option only allows the following values: 'true', 'false'}\relax}
 
 \define@boolkey+{Protokoll.cls}[cls]{showframe}[true]{\relax}{\PackageError{Protokoll.cls}{The 'showframe' option only allows the following values: 'true', 'false'}\relax}
 
@@ -173,6 +169,7 @@
 % ----------------------------------------------------
 %   Grafik Packete
 % ----------------------------------------------------
+\RequirePackage[dvipsnames]{xcolor}                                         % Farbige Texte und Boxen
 \RequirePackage{graphicx}                                       	% Ermöglicht Einbindung und Anpassung von Bildern
 \RequirePackage{wrapfig}                                        	% Ermöglicht Floats um Bilder von Text um fließen zu lassen
 \RequirePackage{tikz,tikz-3dplot}
@@ -182,8 +179,8 @@
 \usetikzlibrary{decorations.pathmorphing}                       	% Erweiterte Bibliothek für PFGPlot
 \usetikzlibrary{shadows}
 \usetikzlibrary{external}
-\usetikzlibrary{calc, arrows, arrows.meta, positioning, decorations.pathreplacing, decorations.markings, decorations.text, calligraphy, pgfplots.dateplot}
-\tikzexternalize[prefix=tikz/,only named] 
+\usetikzlibrary{calc, arrows, arrows.meta, positioning, decorations.pathreplacing, decorations.markings, decorations.text, calligraphy, pgfplots.dateplot, tikzmark, shapes}
+\tikzexternalize[prefix=tikz/,only named]
 \RequirePackage{float}                                          	% Ermöglicht Floats um Objekte von Text um fließen zu lassen
 \RequirePackage[]{svg}												% ermöglicht svg einzubinden --> includesvg
 \RequirePackage[most]{tcolorbox}                                    % Ramen um Elemente
@@ -390,7 +387,6 @@
 % ----------------------------------------------------
 % Gestaltung
 % ----------------------------------------------------
-\RequirePackage{xcolor}                                         % Farbige Texte und Boxen
 \let\oldcomment = \comment
 \let\comment\undefined
 \RequirePackage[commentmarkup=margin]{changes}
@@ -445,7 +441,7 @@
 % ----------------------------------------------------
 % 				Titlepage
 % ----------------------------------------------------
-\providecommand\cls@titlepage@settings@default{\relax}
+\providecommand\cls@titlepage@settings{\relax}
 
 
 % ----------------------------------------------------

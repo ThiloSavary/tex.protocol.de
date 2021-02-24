@@ -3,7 +3,7 @@
 
 [Changelog](CHANGELOG.md)
 
-The documentation can be found in the 'documentation' branch.
+The documentation can be found in the [wiki](wiki).
 
 ---
 
@@ -159,3 +159,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 [version-badge]: https://img.shields.io/badge/version-Alpha_0.0.4-blue.svg
+[wiki]: https://git.thilo.one/Thilo/tex.protocol.de/wiki
