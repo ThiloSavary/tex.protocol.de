@@ -3,7 +3,7 @@
 
 [Changelog](CHANGELOG.md)
 
-[Dokumentation](Dokumentation_Klasse_Protokoll.pdf)
+The documentation can be found in the 'documentation' branch.
 
 ---
 
