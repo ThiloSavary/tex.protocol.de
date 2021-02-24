@@ -3,7 +3,7 @@
 
 [Changelog](CHANGELOG.md)
 
-The documentation can be found in the [wiki](wiki).
+The documentation can be found in the [wiki].
 
 ---
 

@@ -455,6 +455,6 @@ at the end of the entries
 <!--[Unreleased]: https://github.com/ThiloSavary/tex.protocol.de/-->
 [Unreleased]: https://github.com/ThiloSavary/tex.protocol.de/compare/v0.1.0-alpha...HEAD
 [v0.0.1-alpha]: https://github.com/ThiloSavary/tex.protocol.de/releases/tag/v0.0.1-alpha
-[v0.0.2-alpha]: https://github.com/ThiloSavary/tex.protocol.de/compare/v0.0.2-alpha...v0.0.1-alpha
-[v0.0.3-alpha]: https://github.com/ThiloSavary/tex.protocol.de/compare/v0.0.3-alpha...v0.0.2-alpha
-[v0.1.0-alpha]: https://github.com/ThiloSavary/tex.protocol.de/compare/v0.1.0-alpha...v0.0.3-alpha
+[v0.0.2-alpha]: https://github.com/ThiloSavary/tex.protocol.de/compare/v0.0.1-alpha...v0.0.2-alpha
+[v0.0.3-alpha]: https://github.com/ThiloSavary/tex.protocol.de/compare/v0.0.2-alpha...v0.0.3-alpha
+[v0.1.0-alpha]: https://github.com/ThiloSavary/tex.protocol.de/compare/v0.0.3-alpha...v0.1.0-alpha
