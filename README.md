@@ -1,5 +1,5 @@
 # LaTeX Klasse: Protokoll
-![Version 0.0.4 Badge][version-badge]
+![Version 0.1.1 Badge][version-badge]
 
 [Changelog](CHANGELOG.md)
 
@@ -158,5 +158,5 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-[version-badge]: https://img.shields.io/badge/version-Alpha_0.0.4-blue.svg
+[version-badge]: https://img.shields.io/badge/version-Alpha_0.1.1-blue.svg
 [wiki]: https://git.thilo.one/Thilo/tex.protocol.de/wiki
